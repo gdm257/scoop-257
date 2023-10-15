@@ -30,8 +30,8 @@ Template bucket for [Scoop](https://scoop.sh), the Windows command-line installe
 After manifests have been committed and pushed, run the following:
 
 ```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+scoop bucket add gdm257 https://github.com/gdm257/scoop-257
+scoop install gdm257/<manifestname>
 ```
 
 ## How do I contribute new manifests?
