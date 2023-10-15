@@ -1,18 +1,18 @@
 {
-    "version": "1.62.0-mod1.5.1",
+    "version": "1.64.0",
     "description": "A modified version of the rclone, which provides dynamic replacement sa file support for google drive operation",
     "homepage": "https://github.com/dogbutcat/gclone",
     "license": "Unknown",
     "architecture": {
         "64bit": {
             "url": "https://github.com/dogbutcat/gclone/releases/download/v1.62.0-mod1.5.1/gclone-v1.62.0-mod1.5.1-windows-amd64.zip",
-            "hash": "sha512:8d30e88f554c89ae25ed597fc2ea74f005b8dc21ae71e50066f5a072e29af3c74f52605dd962f2ceb3aafe6cf67647d3962c15117a052be80fe0724b7f8a9006",
-            "extract_dir": "gclone-v1.62.0-mod1.5.1-windows-amd64"
+            "hash": "32ac647b30c944cd685ecd16e9f8cc4d2df9c1c843014aecae1d9ffbd9da533c",
+            "extract_dir": "gclone-v1.64.0-windows-amd64"
         },
         "32bit": {
             "url": "https://github.com/dogbutcat/gclone/releases/download/v1.62.0-mod1.5.1/gclone-v1.62.0-mod1.5.1-windows-386.zip",
-            "hash": "sha512:605fe1ffabfb14f249fbc34595fca1a62699be43aff0a104b9d484623f3ab6af285ec57d281125efad1d71a3199693a5722b41f114b89ac07788397a836d4f3c",
-            "extract_dir": "gclone-v1.62.0-mod1.5.1-windows-386"
+            "hash": "6f84fe4fe3e799bef43eb365a6f81fc0afd7006661bfe5702fbbfa11fb638314",
+            "extract_dir": "gclone-v1.64.0-windows-386"
         }
     },
     "bin": "gclone.exe",
