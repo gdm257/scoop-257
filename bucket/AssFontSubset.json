@@ -1,0 +1,26 @@
+{
+    "version": "1.2.4.1",
+    "description": "使用 fonttools 生成 ASS 字幕文件的字体子集，并自动修改字体名称及 ASS 文件中对应的字体名称",
+    "homepage": "https://github.com/tastysugar/AssFontSubset",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/tastysugar/AssFontSubset/releases/download/v1.2.4.1/AssFontSubset.exe",
+            "hash": "sha512:82cf30275c7e074f2ba5ebee17cca168d3b56c1a7cf55f939128ca3b38cd718cb71569c1a1f1b051ca6163563d42199c40c938038750d438866b8637789aacdb"
+        }
+    },
+    "shortcuts": [
+        [
+            "AssFontSubset.exe",
+            "AssFontSubset"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/tastysugar/AssFontSubset/releases/download/v$version/AssFontSubset.exe"
+            }
+        }
+    }
+}
