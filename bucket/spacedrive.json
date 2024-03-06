@@ -1,12 +1,12 @@
 {
-    "version": "0.2.4",
+    "version": "0.2.5",
     "homepage": "https://github.com/spacedriveapp/spacedrive",
     "description": "Spacedrive is an open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust",
     "license": "AGPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/spacedriveapp/spacedrive/releases/download/0.2.4/Spacedrive-windows-x86_64.msi",
-            "hash": "4e96cb0a814583475e87df7534c98ec43a2e4546b82ce8ec444b87d6815da0dd",
+            "url": "https://github.com/spacedriveapp/spacedrive/releases/download/0.2.5/Spacedrive-windows-x86_64.msi",
+            "hash": "1ab77ffae5976a4f59b38d2e818ca2f41f5087fc06c5761eee706459f066cf34",
             "extract_dir": "PFiles/Spacedrive",
             "shortcuts": [
                 [
