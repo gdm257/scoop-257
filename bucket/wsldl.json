@@ -1,16 +1,16 @@
 {
-    "version": "23072600",
+    "version": "24042000",
     "description": "Advanced WSL launcher / installer. (Win10 FCU x64/arm64 or later.)",
     "homepage": "https://github.com/yuk7/wsldl",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/yuk7/wsldl/releases/download/23072600/wsldl.exe",
-            "hash": "70550d13c95b6763141a90222f71d09917905521a65d7e3c3edf59314e182eed"
+            "url": "https://github.com/yuk7/wsldl/releases/download/24042000/wsldl.exe",
+            "hash": "3abaac912fac65ea90f8de384d921243db83b389c9dbe0c23e1c942ab6e8471b"
         },
         "arm64": {
-            "url": "https://github.com/yuk7/wsldl/releases/download/23072600/wsldl_arm64.exe#/wsldl.exe",
-            "hash": "c55e08a5665ebbf669b054bb61ed54a53b7eefb5c6a613f56d0326c6467d4e17"
+            "url": "https://github.com/yuk7/wsldl/releases/download/24042000/wsldl_arm64.exe#/wsldl.exe",
+            "hash": "7a0797f63a7a7e21c922835f8dce9f21ea524500fb1cfa4dceba6251098a36e8"
         }
     },
     "bin": "wsldl.exe",
