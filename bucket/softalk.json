@@ -6,6 +6,20 @@
     "url": "http://blitz.starfree.jp/download/SofTalk/New/stn020101.zip",
     "hash": "sha512:426d18c3be57c49ae913dc4ff691641ebc9de0dae81c22c890f8687a43b37c84cdaa89ba37cc18aa8853403717ac8677b397c293b3b5f3b4f55d33c12abb6c17",
     "extract_dir": "softalk",
+    "bin": [
+        [
+            "SofTalk.exe",
+            "softalk"
+        ],
+        [
+            "softalkw.exe",
+            "softalkw"
+        ],
+        [
+            "SofTalk32.exe",
+            "softalk32"
+        ]
+    ],
     "shortcuts": [
         [
             "SofTalk.exe",
@@ -14,6 +28,10 @@
         [
             "softalkw.exe",
             "SofTalkW"
+        ],
+        [
+            "SofTalk32.exe",
+            "SofTalk (32-bit)"
         ]
     ],
     "checkver": {
