@@ -1,0 +1,26 @@
+{
+    "version": "019363",
+    "description": "A freeware that reads texts including kanji and English in a variety of voices",
+    "homepage": "https://w.atwiki.jp/softalk/",
+    "license": "Freeware",
+    "url": "http://blitz.starfree.jp/download/SofTalk/.NET/stn019363.zip",
+    "hash": "sha512:6a2df7e8cf873e8b22cba4435dbe3628e4ae35cf331ccac429160820fceca22eabbd29a4af3143ad09df077281bade91adf172041b38f6dce3ef3fe2885d5e79",
+    "extract_dir": "softalk",
+    "shortcuts": [
+        [
+            "SofTalk.exe",
+            "SofTalk"
+        ],
+        [
+            "softalkw.exe",
+            "SofTalkW"
+        ]
+    ],
+    "checkver": {
+        "url": "http://blitz.starfree.jp/download/SofTalk/New/",
+        "xpath": "substring-before(//div/center/a[@href[contains(.,'.zip')]]/text(), '.zip')"
+    },
+    "autoupdate": {
+        "url": "http://blitz.starfree.jp/download/SofTalk/New/stn$version.zip"
+    }
+}
