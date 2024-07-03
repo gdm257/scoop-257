@@ -1,0 +1,20 @@
+{
+    "version": "7.6.1",
+    "description": "ImBatch is a free multithreaded image processing tool for your Windows PC",
+    "homepage": "https://www.highmotionsoftware.com/products/imbatch",
+    "license": "Freeware",
+    "url": "https://www.highmotionsoftware.com/download/ImBatch/file/setup-imbatch-latest.exe",
+    "innosetup": true,
+    "shortcuts": [
+        [
+            "ImBatch.exe",
+            "ImBatch"
+        ]
+    ],
+    "persist": [
+        "Options"
+    ],
+    "autoupdate": {
+        "url": "https://www.highmotionsoftware.com/download/ImBatch/file/setup-imbatch-latest.exe"
+    }
+}
