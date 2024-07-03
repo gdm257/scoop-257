@@ -1,0 +1,19 @@
+{
+    "version": "1.25",
+    "description": "KeyFinder is an open source key detection tool, for DJs interested in harmonic and tonal mixing",
+    "homepage": "http://www.ibrahimshaath.co.uk/keyfinder/",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "http://www.ibrahimshaath.co.uk/keyfinder/bins/KeyFinder-WIN-1-25.zip",
+            "hash": "sha512:7749dee6de75a2a9c7ba7b12778a6a220bdd6fe245539f1d1a4494ea79f5636ecc73ddccf416122899a54cffe61ca0f48bff9fa0697c283f339ec4c5fc30435a"
+        }
+    },
+    "extract_dir": "KeyFinder-WIN",
+    "shortcuts": [
+        [
+            "KeyFinder.exe",
+            "KeyFinder"
+        ]
+    ]
+}
