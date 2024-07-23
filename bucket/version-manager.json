@@ -6,11 +6,11 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/gvcgo/version-manager/releases/download/v0.6.4/vmr_windows-amd64.zip",
-            "hash": "8d347945989e54e836da3fbbb4289be2e17f85ea3025e3ce49df81c6be9332fe"
+            "hash": "4cb5e0f8d975b95e81757a1725ce1fb62aa8af1c3686349d7b201be0b9ed4f40"
         },
         "arm64": {
             "url": "https://github.com/gvcgo/version-manager/releases/download/v0.6.4/vmr_windows-arm64.zip",
-            "hash": "f74403f5ffa41d082e3fb1ae37d3a5610a83802b5f1e4c3aede9ea7f2e723b95"
+            "hash": "82ad6039b0fdf55b225aee2130e2efb34368686cd7db813a221ac6e1c20cd208"
         }
     },
     "bin": "vmr.exe",
