@@ -1,12 +1,12 @@
 {
-    "version": "16.4",
+    "version": "16.4.1",
     "description": "Database Subsetting and Relational Data Browsing Tool",
     "homepage": "https://github.com/Wisser/Jailer",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Wisser/Jailer/releases/download/v16.4/Jailer-database-tools-16.4.msi",
-            "hash": "e358917bf15181e5b2927ac579378226d888737551eac3424daec7cf73048af2"
+            "url": "https://github.com/Wisser/Jailer/releases/download/v16.4.1/Jailer-database-tools-16.4.1.msi",
+            "hash": "fcc9d1263a7072bf89de45604cf80c5406ca466f0d821fa0ef1843fac0fbba7f"
         }
     },
     "shortcuts": [
