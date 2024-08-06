@@ -16,7 +16,7 @@
     "shortcuts": [
         [
             "OsuPlayer.exe",
-            "OsuPlayer"
+            "osu! Player"
         ]
     ],
     "checkver": "github",
