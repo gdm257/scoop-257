@@ -1,12 +1,12 @@
 {
-    "version": "0.9.48-alpha.d91a7a0",
+    "version": "0.9.48",
     "description": "A Function as a Service tool makes a function as a container-based service in seconds",
     "homepage": "https://github.com/metrue/fx",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/metrue/fx/releases/download/0.9.48-alpha.d91a7a0/fx_0.9.48-alpha.d91a7a0_windows_64-bit.tar.gz",
-            "hash": "sha512:9f0b2235e2cd9fcfcc9fb8d4fff4a395fa7e038632784197d0939ca1c19f041fad4de914027b3576df73354cc8efdc6301f55fe874e7924cff1b090bf850cc52"
+            "url": "https://github.com/metrue/fx/releases/download/0.9.48/fx_0.9.48_windows_64-bit.tar.gz",
+            "hash": "6821d1ad27d1b898b1c4c6bab37f360bb32cf0fc5d0ef70e14aa283228451072"
         }
     },
     "extract_to": "",
