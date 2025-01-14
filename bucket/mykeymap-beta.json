@@ -1,13 +1,13 @@
 {
-    "version": "2.0-beta30",
+    "version": "2.0-beta31",
     "description": "A keymapping tool based on AutoHotkey. 一款基于 AutoHotkey 的键盘映射工具",
     "homepage": "https://github.com/xianyukang/MyKeymap",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/xianyukang/MyKeymap/releases/download/v2.0-beta30/MyKeymap-2.0-beta30.7z",
-            "hash": "df2c5b0b88ab6f7ec81c9a40b5e81990b441ddc5a63a550c216c556d940ca690",
-            "extract_dir": "MyKeymap-2.0-beta30"
+            "url": "https://github.com/xianyukang/MyKeymap/releases/download/v2.0-beta31/MyKeymap-2.0-beta31.7z",
+            "hash": "4c11d4c56007e33ce48b03438c04030cd32dbb66f944d3f5a8c4d1b4ed99a726",
+            "extract_dir": "MyKeymap-2.0-beta31"
         }
     },
     "shortcuts": [["MyKeymap.exe", "MyKeymap Beta"]],
