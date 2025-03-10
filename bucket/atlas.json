@@ -1,5 +1,5 @@
 {
-    "version": "0.31.0",
+    "version": "0.32.0",
     "description": "Atlas is a language-agnostic tool for managing and migrating database schemas using modern DevOps principles",
     "homepage": "https://atlasgo.io",
     "license": "Apache-2.0",
@@ -10,8 +10,8 @@
                 "https://release.ariga.io/atlas/atlas-community-windows-amd64-latest.exe#/atlas-ce.exe"
             ],
             "hash": [
-                "26ef9800ea70b59b1197a958c473c1dc9aa357f315e8aeebd85086855e69459e",
-                "fb438b3b1308e4f93d3e6004a140f648cdf6943e9e86e583c765358dede102e2"
+                "53bcef1bb201eec85406025472f6d86626f360b05dacfea808e595a85d8ce632",
+                "568cb52c8f9012415277e559702c2d6b0020d2d74155acd2020fcb6acd623f56"
             ]
         }
     },
