@@ -1,12 +1,12 @@
 {
-    "version": "1.0.270",
+    "version": "1.0.272",
     "homepage": "https://github.com/Piotrekol/CollectionManager",
     "description": "An extensive tool for creating, editing, and exporting of osu! collections",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Piotrekol/CollectionManager/releases/download/1.0.270/CollectionManagerSetup.exe",
-            "hash": "db1a30e1db492da9be0b1b0777deb2fbbea9be747bacc653f80cce7323d675e6",
+            "url": "https://github.com/Piotrekol/CollectionManager/releases/download/1.0.272/CollectionManagerSetup.exe",
+            "hash": "0f11702df6d008217a92c79f3f04c890ad6abf8c7a069721a3049789a1f6a1e9",
             "bin": [
                 [
                     "CollectionManagerApp.exe",
