@@ -1,20 +1,20 @@
 {
-    "version": "1.36.5",
+    "version": "1.36.6",
     "description": "A protoc plugin to generate a Go protocol buffer package",
     "homepage": "https://github.com/protocolbuffers/protobuf-go",
     "license": "BSD-3-Clause",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/protocolbuffers/protobuf-go/releases/download/v1.36.5/protoc-gen-go.v1.36.5.windows.amd64.zip",
-            "hash": "277be36f6dc896529b77352ba059ee54dc737a5bf905234476728b142f19a532"
+            "url": "https://github.com/protocolbuffers/protobuf-go/releases/download/v1.36.6/protoc-gen-go.v1.36.6.windows.amd64.zip",
+            "hash": "023bd6d3242323b00a68e13f97555cafa3ca719a4c1c4411e1ba597ea71c203d"
         },
         "32bit": {
-            "url": "https://github.com/protocolbuffers/protobuf-go/releases/download/v1.36.5/protoc-gen-go.v1.36.5.windows.386.zip",
-            "hash": "f272e48686ff1c8b29be5bb46f4969f6437bb6be732c5b60dcff92fd42bcf384"
+            "url": "https://github.com/protocolbuffers/protobuf-go/releases/download/v1.36.6/protoc-gen-go.v1.36.6.windows.386.zip",
+            "hash": "a2db57cccf33fc3addba5018f48ddfc64d15c6ffeb011428d6dbfa11fa77577f"
         },
         "arm64": {
-            "url": "https://github.com/protocolbuffers/protobuf-go/releases/download/v1.36.5/protoc-gen-go.v1.36.5.windows.arm64.zip",
-            "hash": "68551edea56046870318b2f112c402788e4cf80a9aded3f97914d4a7aae4d158"
+            "url": "https://github.com/protocolbuffers/protobuf-go/releases/download/v1.36.6/protoc-gen-go.v1.36.6.windows.arm64.zip",
+            "hash": "731242133bfacb1274dbbecdae8a5136ba4529222186fbb7d12c499b85356a25"
         }
     },
     "bin": "protoc-gen-go.exe",
