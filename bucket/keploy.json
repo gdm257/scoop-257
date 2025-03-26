@@ -1,16 +1,16 @@
 {
-    "version": "2.4.15",
+    "version": "2.4.16",
     "description": "Unit and Integration Test generation for Developers. Generate tests and stubs for your application that actually work",
     "homepage": "https://github.com/keploy/keploy",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/keploy/keploy/releases/download/v2.4.15/keploy_windows_amd64.tar.gz",
-            "hash": "b5ef8afe1b3660b858285b424118df95ec8fadb2564948b235739699c9fe2341"
+            "url": "https://github.com/keploy/keploy/releases/download/v2.4.16/keploy_windows_amd64.tar.gz",
+            "hash": "a015da0ff387244805bda5cb754177a01e7d0b66aacecc4b0a243b04150b1c24"
         },
         "arm64": {
-            "url": "https://github.com/keploy/keploy/releases/download/v2.4.15/keploy_windows_arm64.tar.gz",
-            "hash": "7587ee8883cf5284a9345b241ef9c02a68e4ca5f1310b7bb5880e73c2d4e5ee1"
+            "url": "https://github.com/keploy/keploy/releases/download/v2.4.16/keploy_windows_arm64.tar.gz",
+            "hash": "c6d1b025cdbabe345a1b7af81f75b2e5edd01f1e3358b36891ec435259b16041"
         }
     },
     "bin": "keploy.exe",
