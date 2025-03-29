@@ -1,12 +1,12 @@
 {
-    "version": "2025.3.23",
+    "version": "2025.3.28",
     "description": "OliveTin gives safe and simple access to predefined shell commands from a web interface",
     "homepage": "https://github.com/OliveTin/OliveTin",
     "license": "AGPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/OliveTin/OliveTin/releases/download/2025.3.23/OliveTin-windows-amd64.zip",
-            "hash": "0d057f2ee0d56790b3dca5514f97f5b377cd0c9368e0a3dccb34fefe1d8d3975",
+            "url": "https://github.com/OliveTin/OliveTin/releases/download/2025.3.28/OliveTin-windows-amd64.zip",
+            "hash": "148e7cfa7fbbe1d850d28e791153118814590754b6d8455bca6f2e8f7e31fc89",
             "extract_dir": "OliveTin-windows-amd64"
         }
     },
