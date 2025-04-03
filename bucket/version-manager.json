@@ -1,16 +1,16 @@
 {
-    "version": "0.7.3",
+    "version": "0.7.5",
     "description": "A general version manager for multiple sdks, such as Java, Go, Node.js, Deno, Bun, .Net, Python, PyPy, PHP, Kotlin, Scala, Groovy, Flutter, Julia, Zig, V, Odin, Typst, etc. A better choice than nvm, fnm, fvm, gvm, pyenv, asdf-vm, etc",
     "homepage": "https://github.com/gvcgo/version-manager",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/gvcgo/version-manager/releases/download/v0.7.3/vmr_windows-amd64.zip",
-            "hash": "8a83dd1441e7156d9e570f666e3b62fd7189ca9a020e8dead001a39f080e218e"
+            "url": "https://github.com/gvcgo/version-manager/releases/download/v0.7.5/vmr_windows-amd64.zip",
+            "hash": "8eee6c8b2e8af68184239cbc5fa3f2a49d1352b4e9e28a74206c5b374a42eef7"
         },
         "arm64": {
-            "url": "https://github.com/gvcgo/version-manager/releases/download/v0.7.3/vmr_windows-arm64.zip",
-            "hash": "1fe92497b29aa71a2a85fdb181ca7523fecbcdd5e899f24344122305d7753e5b"
+            "url": "https://github.com/gvcgo/version-manager/releases/download/v0.7.5/vmr_windows-arm64.zip",
+            "hash": "3d9febab6a3bb68808f098a65fd26637d5b6fe402ece258d79fc124104c14725"
         }
     },
     "bin": "vmr.exe",
