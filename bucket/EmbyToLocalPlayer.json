@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/kjtsune/embyToLocalPlayer/releases/download/2025.02.08/etlp-python-embed-win32.zip",
-            "hash": "7325e9a52d1fde1a223b959c8743df321f00fc3d80d6f6e3aad7f07c87519128"
+            "hash": "a8d884eef7c7f326490f5f9cea016583ca6a54c7139e8e0bb7090f87921cc95a"
         }
     },
     "extract_to": "",
@@ -15,10 +15,6 @@
         [
             "embyToLocalPlayer_debug.bat",
             "embyToLocalPlayer"
-        ],
-        [
-            "embyToLocalPlayer_d.bat",
-            "embyToLocalPlayer_d"
         ]
     ],
     "persist": "embyToLocalPlayer_config.ini",
