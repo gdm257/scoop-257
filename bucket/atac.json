@@ -1,12 +1,12 @@
 {
-    "version": "0.20.0",
+    "version": "0.20.1",
     "description": "A simple API client (postman like) in your terminal",
     "homepage": "https://github.com/Julien-cpsn/ATAC",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Julien-cpsn/ATAC/releases/download/v0.20.0/atac-v0.20.0-x86_64-pc-windows-msvc.zip",
-            "hash": "d4b7f42c12c78fe8e82161479dd85ebb424d1bfdf30ceb93a6565125b328fad7"
+            "url": "https://github.com/Julien-cpsn/ATAC/releases/download/v0.20.1/atac-v0.20.1-x86_64-pc-windows-msvc.zip",
+            "hash": "3dc1970736d096031276a8e82c82e50f8585461a7d1787d712eb71d3494835e4"
         }
     },
     "bin": "atac.exe",
