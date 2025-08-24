@@ -1,0 +1,19 @@
+{
+    "version": "1.06",
+    "description": "皎月连一键内网穿透",
+    "homepage": "https://www.natpierce.cn",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://natpierce.oss-cn-beijing.aliyuncs.com/pc/natpierce-win-v1.06.zip",
+            "hash": "sha512:41fe534502dddcaedc5a654770870696bcfddfd11881b104fac6605ec71bd677f453949ca360ce4e7b3b3577e1a7b21586540047d779844be19000c3953df767"
+        }
+    },
+    "bin": "natpierce.exe",
+    "shortcuts": [
+        [
+            "natpierce.exe",
+            "natpierce"
+        ]
+    ]
+}
