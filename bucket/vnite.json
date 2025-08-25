@@ -1,0 +1,32 @@
+{
+    "version": "4.3.0",
+    "description": "A unified platform to organize your game collection, track gameplay, with real-time cloud sync across devices and detailed gameplay reports",
+    "homepage": "https://github.com/ximu3/vnite",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/ximu3/vnite/releases/download/v4.3.0/vnite-4.3.0-setup.exe#/dl.7z",
+            "hash": "sha256:733446cdcb8f4004ab53b41cc525ffe4a90b54c446ea95eaef34454f9a0958f7"
+        }
+    },
+    "extract_to": "",
+    "pre_install": [
+        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+        "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
+    ],
+    "shortcuts": [
+        [
+            "Vnite.exe",
+            "Vnite"
+        ]
+    ],
+    "persist": "app",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/ximu3/vnite/releases/download/v$version/vnite-$version-setup.exe#/dl.7z"
+            }
+        }
+    }
+}
