@@ -1,13 +1,13 @@
 {
-    "version": "0.9.6",
+    "version": "0.9.7",
     "description": "Jujutsu UI (jjui) is a Text User Interface (TUI) designed for interacting with the Jujutsu version control system",
     "homepage": "https://github.com/idursun/jjui",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/idursun/jjui/releases/download/v0.9.6/jjui-0.9.6-windows-amd64.zip",
-            "hash": "b37c062763534cce8f59b8c3c2a593d7e375f760fe30ac1f73a162776a0cdd57",
-            "pre_install": "Move-Item \"$dir\\jjui-0.9.6-windows-amd64.exe\" \"$dir\\jjui.exe\""
+            "url": "https://github.com/idursun/jjui/releases/download/v0.9.7/jjui-0.9.7-windows-amd64.zip",
+            "hash": "a93a8aa6b801fe25a7d13f06caf859afb8d138e2f132081d68074802943e8d3f",
+            "pre_install": "Move-Item \"$dir\\jjui-0.9.7-windows-amd64.exe\" \"$dir\\jjui.exe\""
         }
     },
     "bin": "jjui.exe",
