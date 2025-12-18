@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/CodingWonders/DISMTools/releases/download/v0.7.1_upd1/DISMTools.zip",
-            "hash": "sha512:dd13b5e16c25201f055a9534b4e393bd1d1d44c3a412c4e3c221b8d86c78d46f34e87c9b393f56512b795acfb58f5310c52e9391867090b09a95a9e8ef4fc0f8"
+            "hash": "sha256:8ed6375ebad6e82049c2a1ec669f512d94e9dc7a7ac4193db97d9946f59d2a30"
         }
     },
     "shortcuts": [
