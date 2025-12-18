@@ -6,11 +6,11 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/xianyukang/MyKeymap/releases/download/v2.0-beta33/MyKeymap-2.0-beta33.7z",
-            "hash": "b3a12f78e4d4748b5a36f7a6b42c5d2e5fcd2a8f467d0192e6b7d7c8e3f9a6a2",
+            "hash": "b4c769a0324ed8c2615b56f26102713fdf25915c1b38eb33c3511a32b54e6177",
             "extract_dir": "MyKeymap-2.0-beta33"
         }
     },
-    "shortcuts": [["MyKeymap.exe", "MyKeymap Beta"]],
+    "shortcuts": [["MyKeymap.exe", "MyKeymap"]],
     "persist": ["data"],
     "checkver": "github",
     "autoupdate": {
