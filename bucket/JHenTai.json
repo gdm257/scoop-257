@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/jiangtian616/JHenTai/releases/download/v8.0.10%2B302/JHenTai_8.0.10+302_Windows.zip",
-            "hash": "sha512:1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g",
+            "hash": "sha256:4d4fdb2fc43fa94538a9bd60672478cf13d77a01c6c6903a0c34ad6c167b91ca",
             "extract_dir": "JHenTai_8.0.10+302",
             "shortcuts": [
                 [
