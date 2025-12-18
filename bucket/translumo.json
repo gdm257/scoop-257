@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/ramjke/Translumo/releases/download/v.1.0.2/Translumo_1.0.2.zip#/dl.7z",
-            "hash": "sha512:9a8b7c6d5e4f3g2h1i0j9k8l7m6n5o4p3q2r1s0t9u8v7w6x5z4y3c2b1a0f9e8d7"
+            "hash": "sha256:825e01acbb5e611c5c343ab6c60c72d338604d1452f72ef5cdf7fe88b7faf50d"
         }
     },
     "shortcuts": [
