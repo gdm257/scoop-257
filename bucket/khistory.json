@@ -17,6 +17,10 @@
     ],
     "checkver": "github",
     "autoupdate": {
-        "url": "https://github.com/Sunrisepeak/KHistory/releases/download/$version/khistory-$version-win-x86_64.exe"
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Sunrisepeak/KHistory/releases/download/$version/khistory-$version-win-x86_64.exe#/khistory.exe"
+            }
+        }
     }
 }
