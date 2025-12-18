@@ -6,10 +6,19 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/kingwingfly/fav/releases/download/v1.1.1/fav_bili-v1.1.1-x86_64-pc-windows-msvc.zip",
-            "hash": "e4d5b96c5e6c5d4c8c3e611d5d279c0d43e3c22f7e5602c73b3a7c0d2942a0d"
+            "hash": "sha256:57888d2a162caa11cc45990100cb400e1543d5a319b8e846fb4a7b8a9988e55e"
         }
     },
-    "bin": "fav.exe",
+    "bin": [
+        [
+            "fav_bili.exe",
+            "fav"
+        ],
+        [
+            "fav_bili.exe",
+            "fav_bili"
+        ]
+    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
