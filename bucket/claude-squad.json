@@ -1,4 +1,4 @@
-{
+
     "version": "1.0.13",
     "description": "Manage multiple AI terminal agents like Claude Code, Aider, Codex, OpenCode, and Amp",
     "homepage": "https://github.com/smtg-ai/claude-squad",
@@ -13,7 +13,7 @@
         [
             "claude-squad.exe",
             "claude-squad"
-	]
+        ]
     ],
     "checkver": "github",
     "autoupdate": {

@@ -12,7 +12,9 @@
     "checkver": "github",
     "autoupdate": {
         "architecture": {
-            "url": "https://github.com/Bush2021/chrome_plus/releases/download/$version/Chrome++_v$version_x86_x64_arm64.7z"
+            "64bit": {
+                "url": "https://github.com/Bush2021/chrome_plus/releases/download/$version/Chrome++_v$version_x86_x64_arm64.7z"
+            }
         }
     }
 }
