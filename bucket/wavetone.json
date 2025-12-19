@@ -17,7 +17,7 @@
     ],
     "checkver": {
         "url": "https://ackiesound.ifdef.jp/download.html",
-        "regexp": "WaveTone ver.(\\d+\\.\\d+)"
+        "regex": "WaveTone ver.(\\d+\\.\\d+)"
     },
     "autoupdate": {
         "url": "https://ackiesound.ifdef.jp/data/wavetone$version.zip",
