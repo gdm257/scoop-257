@@ -1,12 +1,12 @@
 {
-    "version": "1.13.5",
+    "version": "1.14.0",
     "description": "A DLL hijack implements Chrome full portability as well as tab enhancements",
     "homepage": "https://github.com/Bush2021/chrome_plus",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Bush2021/chrome_plus/releases/download/1.13.5/Chrome++_v1.13.5_x86_x64_arm64.7z",
-            "hash": "2ee74aae0614ceb41072a42f2ff13618e8cfe05ad0e309545da93bfbefd57ab4"
+            "url": "https://github.com/Bush2021/chrome_plus/releases/download/1.14.0/Chrome++_v1.14.0_x86_x64_arm64.7z",
+            "hash": "721c5ccd14de2449cf03dfab1001d26d3a394c30f28a413a6301e17e77cff090"
         }
     },
     "checkver": "github",
