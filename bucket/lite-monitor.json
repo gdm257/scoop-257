@@ -10,12 +10,16 @@
             "extract_dir": "LiteMonitor_v1.2.1-win-x64"
         }
     },
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\settings.json\")) { New-Item -ItemType Directory -Path \"$persist_dir\" -Force; Set-Content -Encoding ASCII -Path \"$persist_dir\\settings.json\" -Value '{}' }"
+    ],
     "shortcuts": [
         [
             "LiteMonitor.exe",
             "LiteMonitor"
         ]
     ],
+    "persist": "settings.json",
     "checkver": "github",
     "autoupdate": {
         "architecture": {
