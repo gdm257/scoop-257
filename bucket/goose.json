@@ -1,12 +1,12 @@
 {
-    "version": "1.22.1",
+    "version": "1.22.2",
     "description": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
     "homepage": "https://github.com/block/goose",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/block/goose/releases/download/v1.22.1/goose-x86_64-pc-windows-gnu.zip",
-            "hash": "a5ee3da3049775c4d3fe235d813c36104f94d0c2dd88348f90b39f2eb0e7e101"
+            "url": "https://github.com/block/goose/releases/download/v1.22.2/goose-x86_64-pc-windows-gnu.zip",
+            "hash": "104a0c9f0c658717cdf4a8cd58ed0abac6ebfbb235a152e66e8aec4f5b670495"
         }
     },
     "extract_dir": "goose-package",
