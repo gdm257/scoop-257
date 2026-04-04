@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "2.7.8",
+    "description": "去中心化组网工具",
+    "homepage": "https://github.com/ldoubil/astral",
+    "license": "CC-BY-NC-ND-4.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/ldoubil/astral/releases/download/v2.7.8/astral-windows-x64-zip.zip",
+            "hash": "sha256:3d6255441495b6949ed1422ae4bc339e0b0f0705f12061c006eb5bd357bf57bc"
+        }
+    },
+    "shortcuts": [["astral.exe", "Astral"]],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/ldoubil/astral/releases/download/v$version/astral-windows-x64-zip.zip"
+            }
+        }
+    }
+}
