@@ -1,12 +1,12 @@
 {
-    "version": "1.61.6",
+    "version": "1.62.0",
     "description": "a better dotenv–from the creator of `dotenv`",
     "homepage": "https://github.com/dotenvx/dotenvx",
     "license": "BSD-3-Clause",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/dotenvx/dotenvx/releases/download/v1.61.6/dotenvx-windows-amd64.zip",
-            "hash": "88c47bde5208e69caa4adaa81c311bbdb636c0aacdba9b10a7461623ccad7906"
+            "url": "https://github.com/dotenvx/dotenvx/releases/download/v1.62.0/dotenvx-windows-amd64.zip",
+            "hash": "bcf00d4cbd91bbe6220ae8822f7e31ddfec9af1cea493601c480802755cdeee5"
         }
     },
     "bin": "dotenvx.exe",
