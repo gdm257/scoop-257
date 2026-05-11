@@ -1,5 +1,13 @@
 # Scoop Bucket Manifest Conventions
 
+## Commit Message Conventions
+
+| Area                   | Style                      | Example                              |
+| ---------------------- | -------------------------- | ------------------------------------ |
+| Manifest / app files   | `<appname>: <description>` | `moonlight: Add version 6.2.79`      |
+| Trellis / CI / tooling | `ci(<scope>): <message>`   | `ci(sdd): upgrade opencode package`  |
+| Spec docs              | `docs(spec): <message>`    | `docs(spec): add bucket conventions` |
+
 ## Key Scoop Installer Variables
 
 | Variable       | Value                              | Example                                      |
