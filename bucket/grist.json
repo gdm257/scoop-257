@@ -1,12 +1,12 @@
 {
-    "version": "0.3.11",
+    "version": "0.3.12",
     "description": "Desktop Grist, packaged with Electron",
     "homepage": "https://github.com/gristlabs/grist-desktop",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/gristlabs/grist-desktop/releases/download/v0.3.11/grist-desktop-0.3.11-win-x64.exe#/app-64.7z",
-            "hash": "d15e6e6778c87197d93594fa022d2194bb1324704c459c932237e62b36fa0de2"
+            "url": "https://github.com/gristlabs/grist-desktop/releases/download/v0.3.12/grist-desktop-0.3.12-win-x64.exe#/app-64.7z",
+            "hash": "f7f9b74d733a4ef730f5c3e37e9b102ff59cd3bb7cdfc2033d90b17db29c17db"
         }
     },
     "pre_install": [
