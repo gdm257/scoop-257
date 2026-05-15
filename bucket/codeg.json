@@ -15,6 +15,7 @@
             "extract_dir": ["PFiles/codeg"]
         }
     },
+    "shortcuts": [["codeg.exe", "codeg"]],
     "bin": ["codeg.exe", "codeg-server.exe"],
     "checkver": "github",
     "autoupdate": {
