@@ -1,0 +1,30 @@
+{
+  "id": "winsw-task-svc-mgr",
+  "name": "winsw-task-svc-mgr",
+  "title": "winsw + task 搭建 Windows Services 管理工具",
+  "description": "winswctl - 基于 winsw + task 的 Windows 服务中心化管理工具，已作为独立 scoop 包分发",
+  "status": "done",
+  "dev_type": null,
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "gdm257",
+  "assignee": "gdm257",
+  "createdAt": "2026-05-17",
+  "completedAt": "2026-05-17",
+  "branch": null,
+  "base_branch": "master",
+  "worktree_path": null,
+  "commit": "1b60366",
+  "pr_url": null,
+  "subtasks": [],
+  "children": [],
+  "parent": null,
+  "relatedFiles": [
+    "bucket/winswctl.json",
+    "scripts/winsw/Taskfile.yml",
+    "scripts/winsw/winswctl.ps1"
+  ],
+  "notes": "",
+  "meta": {}
+}
