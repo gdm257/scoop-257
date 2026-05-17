@@ -17,8 +17,8 @@
     },
     "installer": {
         "script": [
-            "Copy-Item (Join-Path $bucketsdir $bucket 'scripts\\winsw\\Taskfile.yml') \"$dir\\Taskfile.yml\"",
-            "Copy-Item (Join-Path $bucketsdir $bucket 'scripts\\winsw\\winswctl.ps1') \"$dir\\winswctl.ps1\""
+            "Copy-Item (Join-Path $bucketsdir $bucket 'scripts\\winswctl\\Taskfile.yml') \"$dir\\Taskfile.yml\"",
+            "Copy-Item (Join-Path $bucketsdir $bucket 'scripts\\winswctl\\winswctl.ps1') \"$dir\\winswctl.ps1\""
         ]
     },
     "bin": [["winswctl.ps1", "winswctl"]],
