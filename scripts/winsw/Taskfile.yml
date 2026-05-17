@@ -1,0 +1,193 @@
+version: '3'
+
+silent: true
+
+vars:
+  SHIMS: shims
+  WINSW: winsw.exe
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  # --- Query ---
+
+  list:
+    desc: List all services
+    cmds:
+      - |
+        found=0
+        for exe in {{.SHIMS}}/*.exe; do
+          [ -e "$exe" ] || continue
+          found=1
+          basename "$exe" .exe
+        done
+        [ "$found" -eq 1 ] || echo "No services found."
+
+  status:*:
+    desc: Show status of a service
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
+        printf "%s: " "{{.SVC}}"
+        "$exe" status
+
+  status:
+    desc: Show status of all services
+    cmds:
+      - |
+        found=0
+        for exe in {{.SHIMS}}/*.exe; do
+          [ -e "$exe" ] || continue
+          found=1
+          printf "%s: " "$(basename "$exe" .exe)"
+          "$exe" status
+        done
+        [ "$found" -eq 1 ] || echo "No services found."
+
+  # --- File layer: add / remove ---
+
+  add:*:
+    desc: Add a new service (copy exe + create config template)
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        dest="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ -f "$dest" ]; then echo "Service '{{.SVC}}' already exists" >&2; exit 1; fi
+        cp {{.WINSW}} "$dest"
+        cfg="{{.SHIMS}}/{{.SVC}}.yml"
+        if [ ! -f "$cfg" ]; then
+          echo '$schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json' > "$cfg"
+          echo "id: {{.SVC}}" >> "$cfg"
+          echo "name: {{.SVC}}" >> "$cfg"
+          echo "description: {{.SVC}} service" >> "$cfg"
+          echo "executable:" >> "$cfg"
+          echo "Created config: $cfg"
+        fi
+        echo "Added service: {{.SVC}}"
+
+  edit:*:
+    desc: Edit service config with default editor
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        cfg="{{.SHIMS}}/{{.SVC}}.yml"
+        if [ ! -f "$cfg" ]; then echo "Config '{{.SVC}}.yml' not found." >&2; exit 1; fi
+        ${EDITOR:-notepad} "$cfg"
+
+  remove:*:
+    desc: Remove service files (exe + config)
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        base="{{.SHIMS}}/{{.SVC}}"
+        if [ ! -f "${base}.exe" ]; then echo "Service '{{.SVC}}' not found" >&2; exit 1; fi
+        rm -f "${base}.exe" "${base}.yml" "${base}.xml"
+        echo "Removed service: {{.SVC}}"
+
+  # --- Service registration: install / uninstall ---
+
+  install:*:
+    desc: Register service with Windows
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found. Run 'winswctl add:{{.SVC}}' first." >&2; exit 1; fi
+        "$exe" install
+
+  uninstall:*:
+    desc: Unregister service from Windows
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
+        "$exe" uninstall
+
+  # --- Service control: start / stop / restart ---
+
+  start:*:
+    desc: Start a service
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
+        "$exe" start
+
+  stop:*:
+    desc: Stop a service
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
+        "$exe" stop
+
+  restart:*:
+    desc: Restart a service
+    silent: true
+    vars:
+      SVC: '{{index .MATCH 0}}'
+    cmds:
+      - |
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
+        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
+        "$exe" restart
+
+  # --- Batch operations ---
+
+  start:
+    desc: Start all services
+    cmds:
+      - |
+        found=0
+        for exe in {{.SHIMS}}/*.exe; do
+          [ -e "$exe" ] || continue
+          found=1
+          "$exe" start
+        done
+        [ "$found" -eq 1 ] || echo "No services found."
+
+  stop:
+    desc: Stop all services
+    cmds:
+      - |
+        found=0
+        for exe in {{.SHIMS}}/*.exe; do
+          [ -e "$exe" ] || continue
+          found=1
+          "$exe" stop
+        done
+        [ "$found" -eq 1 ] || echo "No services found."
+
+  restart:
+    desc: Restart all services
+    cmds:
+      - |
+        found=0
+        for exe in {{.SHIMS}}/*.exe; do
+          [ -e "$exe" ] || continue
+          found=1
+          "$exe" restart
+        done
+        [ "$found" -eq 1 ] || echo "No services found."
