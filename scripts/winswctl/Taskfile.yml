@@ -111,6 +111,29 @@ tasks:
         powershell -NoProfile -Command "Remove-Item -Force '${base}.exe','${base}.yml','${base}.xml' -ErrorAction SilentlyContinue" || true
         echo "Removed service: {{.SVC}}"
 
+  reset:
+    desc: Copy winsw.exe for services that have config but missing exe
+    cmds:
+      - |
+        files=$(powershell -NoProfile -Command "Get-ChildItem '{{.SHIMS}}/*.yml','{{.SHIMS}}/*.xml' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty BaseName" | tr -d '\r')
+        if [ -z "$files" ]; then
+          echo "No services found."
+          exit 0
+        fi
+        count=0
+        for svc in $files; do
+          if [ ! -f "{{.SHIMS}}/$svc.exe" ]; then
+            powershell -NoProfile -Command "Copy-Item 'winsw.exe' '{{.SHIMS}}/$svc.exe'"
+            echo "Restored {{.SHIMS}}/$svc.exe"
+            count=$((count + 1))
+          fi
+        done
+        if [ "$count" -eq 0 ]; then
+          echo "All services already have exe, nothing to do"
+        else
+          echo "Restored $count service(s)"
+        fi
+
   # --- Service registration: install / uninstall ---
 
   install:*:
