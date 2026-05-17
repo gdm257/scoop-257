@@ -1,10 +1,10 @@
-version: '3'
+$schema: https://taskfile.dev/schema.json
+version: "3"
 
 silent: true
 
 vars:
   SHIMS: shims
-  WINSW: winsw.exe
 
 tasks:
   default:
@@ -17,58 +17,64 @@ tasks:
     desc: List all services
     cmds:
       - |
-        found=0
-        for exe in {{.SHIMS}}/*.exe; do
-          [ -e "$exe" ] || continue
-          found=1
-          basename "$exe" .exe
+        count=$(powershell -NoProfile -Command "@(Get-ChildItem '{{.SHIMS}}/*.exe' -ErrorAction SilentlyContinue).Count")
+        if [ "$count" -eq 0 ]; then
+          echo "No services found."
+          exit 0
+        fi
+        for f in "{{.SHIMS}}"/*.exe; do
+          [ -f "$f" ] || continue
+          powershell -NoProfile -Command "[System.IO.Path]::GetFileNameWithoutExtension('$f')"
         done
-        [ "$found" -eq 1 ] || echo "No services found."
 
   status:*:
     desc: Show status of a service
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         exe="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
-        printf "%s: " "{{.SVC}}"
-        "$exe" status
+        if [ ! -f "$exe" ]; then
+          echo "Service {{.SVC}} not found."
+          exit 1
+        fi
+        printf "{{.SVC}}: "
+        powershell -NoProfile -Command "& '$exe' status"
 
   status:
     desc: Show status of all services
     cmds:
       - |
-        found=0
-        for exe in {{.SHIMS}}/*.exe; do
-          [ -e "$exe" ] || continue
-          found=1
-          printf "%s: " "$(basename "$exe" .exe)"
-          "$exe" status
+        files=$(powershell -NoProfile -Command "Get-ChildItem '{{.SHIMS}}/*.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName")
+        if [ -z "$files" ]; then
+          echo "No services found."
+          exit 0
+        fi
+        for f in $files; do
+          name=$(powershell -NoProfile -Command "[System.IO.Path]::GetFileNameWithoutExtension('$f')")
+          printf "%s: " "$name"
+          powershell -NoProfile -Command "& '$f' status"
         done
-        [ "$found" -eq 1 ] || echo "No services found."
 
   # --- File layer: add / remove ---
 
   add:*:
-    desc: Add a new service (copy exe + create config template)
+    desc: Add a new service (hardlink winsw.exe + config template)
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
-        dest="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ -f "$dest" ]; then echo "Service '{{.SVC}}' already exists" >&2; exit 1; fi
-        cp {{.WINSW}} "$dest"
+        exe="{{.SHIMS}}/{{.SVC}}.exe"
         cfg="{{.SHIMS}}/{{.SVC}}.yml"
+        if [ -f "$exe" ]; then
+          echo "Service {{.SVC}} already exists, skipping"
+          exit 0
+        fi
+        powershell -NoProfile -Command "Copy-Item 'winsw.exe' '$exe'"
         if [ ! -f "$cfg" ]; then
-          echo '$schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json' > "$cfg"
-          echo "id: {{.SVC}}" >> "$cfg"
-          echo "name: {{.SVC}}" >> "$cfg"
-          echo "description: {{.SVC}} service" >> "$cfg"
-          echo "executable:" >> "$cfg"
+          powershell -NoProfile -Command "@('\$schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json','id: {{.SVC}}','name: {{.SVC}}','description: {{.SVC}} service','executable:') | Set-Content '$cfg'"
           echo "Created config: $cfg"
         fi
         echo "Added service: {{.SVC}}"
@@ -76,23 +82,33 @@ tasks:
   edit:*:
     desc: Edit service config with default editor
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         cfg="{{.SHIMS}}/{{.SVC}}.yml"
-        if [ ! -f "$cfg" ]; then echo "Config '{{.SVC}}.yml' not found." >&2; exit 1; fi
-        ${EDITOR:-notepad} "$cfg"
+        if [ ! -f "$cfg" ]; then
+          echo "Config {{.SVC}}.yml not found."
+          exit 1
+        fi
+        if [ -n "$EDITOR" ]; then
+          "$EDITOR" "$cfg"
+        else
+          notepad "$cfg"
+        fi
 
   remove:*:
-    desc: Remove service files (exe + config)
+    desc: Remove service files (hardlink + config)
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         base="{{.SHIMS}}/{{.SVC}}"
-        if [ ! -f "${base}.exe" ]; then echo "Service '{{.SVC}}' not found" >&2; exit 1; fi
-        rm -f "${base}.exe" "${base}.yml" "${base}.xml"
+        if [ ! -f "${base}.exe" ]; then
+          echo "Service {{.SVC}} not found, nothing to remove"
+          exit 0
+        fi
+        powershell -NoProfile -Command "Remove-Item -Force '${base}.exe','${base}.yml','${base}.xml' -ErrorAction SilentlyContinue" || true
         echo "Removed service: {{.SVC}}"
 
   # --- Service registration: install / uninstall ---
@@ -101,23 +117,29 @@ tasks:
     desc: Register service with Windows
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         exe="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found. Run 'winswctl add:{{.SVC}}' first." >&2; exit 1; fi
-        "$exe" install
+        if [ ! -f "$exe" ]; then
+          echo "Service {{.SVC}} not found. Run 'winswctl add:{{.SVC}}' first."
+          exit 1
+        fi
+        powershell -NoProfile -Command "& '$exe' install"
 
   uninstall:*:
     desc: Unregister service from Windows
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         exe="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
-        "$exe" uninstall
+        if [ ! -f "$exe" ]; then
+          echo "Service {{.SVC}} not found."
+          exit 1
+        fi
+        powershell -NoProfile -Command "& '$exe' uninstall"
 
   # --- Service control: start / stop / restart ---
 
@@ -125,34 +147,43 @@ tasks:
     desc: Start a service
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         exe="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
-        "$exe" start
+        if [ ! -f "$exe" ]; then
+          echo "Service {{.SVC}} not found."
+          exit 1
+        fi
+        powershell -NoProfile -Command "& '$exe' start"
 
   stop:*:
     desc: Stop a service
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         exe="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
-        "$exe" stop
+        if [ ! -f "$exe" ]; then
+          echo "Service {{.SVC}} not found."
+          exit 1
+        fi
+        powershell -NoProfile -Command "& '$exe' stop"
 
   restart:*:
     desc: Restart a service
     silent: true
     vars:
-      SVC: '{{index .MATCH 0}}'
+      SVC: "{{index .MATCH 0}}"
     cmds:
       - |
         exe="{{.SHIMS}}/{{.SVC}}.exe"
-        if [ ! -f "$exe" ]; then echo "Service '{{.SVC}}' not found." >&2; exit 1; fi
-        "$exe" restart
+        if [ ! -f "$exe" ]; then
+          echo "Service {{.SVC}} not found."
+          exit 1
+        fi
+        powershell -NoProfile -Command "& '$exe' restart"
 
   # --- Batch operations ---
 
@@ -160,34 +191,37 @@ tasks:
     desc: Start all services
     cmds:
       - |
-        found=0
-        for exe in {{.SHIMS}}/*.exe; do
-          [ -e "$exe" ] || continue
-          found=1
-          "$exe" start
+        files=$(powershell -NoProfile -Command "Get-ChildItem '{{.SHIMS}}/*.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName")
+        if [ -z "$files" ]; then
+          echo "No services found."
+          exit 0
+        fi
+        for f in $files; do
+          powershell -NoProfile -Command "& '$f' start"
         done
-        [ "$found" -eq 1 ] || echo "No services found."
 
   stop:
     desc: Stop all services
     cmds:
       - |
-        found=0
-        for exe in {{.SHIMS}}/*.exe; do
-          [ -e "$exe" ] || continue
-          found=1
-          "$exe" stop
+        files=$(powershell -NoProfile -Command "Get-ChildItem '{{.SHIMS}}/*.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName")
+        if [ -z "$files" ]; then
+          echo "No services found."
+          exit 0
+        fi
+        for f in $files; do
+          powershell -NoProfile -Command "& '$f' stop"
         done
-        [ "$found" -eq 1 ] || echo "No services found."
 
   restart:
     desc: Restart all services
     cmds:
       - |
-        found=0
-        for exe in {{.SHIMS}}/*.exe; do
-          [ -e "$exe" ] || continue
-          found=1
-          "$exe" restart
+        files=$(powershell -NoProfile -Command "Get-ChildItem '{{.SHIMS}}/*.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName")
+        if [ -z "$files" ]; then
+          echo "No services found."
+          exit 0
+        fi
+        for f in $files; do
+          powershell -NoProfile -Command "& '$f' restart"
         done
-        [ "$found" -eq 1 ] || echo "No services found."

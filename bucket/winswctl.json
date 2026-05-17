@@ -21,7 +21,7 @@
             "Copy-Item (Join-Path $bucketsdir $bucket 'scripts\\winswctl\\winswctl.ps1') \"$dir\\winswctl.ps1\""
         ]
     },
-    "bin": [["winswctl.ps1", "winswctl"]],
+    "bin": [["winswctl.ps1", "winswctl"], "winsw.exe"],
     "persist": ["shims"],
     "env_add_path": ["shims"],
     "checkver": "github",
