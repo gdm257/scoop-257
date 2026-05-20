@@ -10,6 +10,7 @@
             "hash": "sha256:2d291bb49307fb09fce365037205b6c5bda455146a6bcf39adbe8dcd4bc3719d"
         }
     },
+    "bin": "md-preview.exe",
     "shortcuts": [["md-preview.exe", "MD Preview"]],
     "checkver": "github",
     "autoupdate": {
