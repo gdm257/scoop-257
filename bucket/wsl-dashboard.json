@@ -1,0 +1,27 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "0.8.0",
+    "description": "A GUI manager for WSL featuring a modern UI — a lightweight, low‑memory, high‑performance dashboard to manage WSL instances",
+    "homepage": "https://github.com/owu/wsl-dashboard",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/owu/wsl-dashboard/releases/download/v0.8.0/WSLDashboard.0.8.0.Portable.x64.zip",
+            "hash": "sha256:89feea72698b4ba6358c4a6bb5c7b00870519edf61ce6a3916f7c7aee67efd5d"
+        }
+    },
+    "installer": {
+        "script": [
+            "Move-Item \"$dir\\WSLDashboard.$version.Portable.*.exe\" \"$dir\\WSLDashboard.exe\""
+        ]
+    },
+    "shortcuts": [["WSLDashboard.exe", "WSLDashboard"]],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/owu/wsl-dashboard/releases/download/v$version/WSLDashboard.$version.Portable.x64.zip"
+            }
+        }
+    }
+}
