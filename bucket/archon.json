@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.3.12",
+    "version": "0.4.1",
     "description": "The first open-source harness builder for AI coding. Make AI coding deterministic and repeatable.",
     "homepage": "https://github.com/coleam00/Archon",
     "license": "MIT",
     "architecture": {
         "64bit": {
             "url": "https://github.com/coleam00/Archon/releases/download/v0.3.12/archon-windows-x64.exe#/archon.exe",
-            "hash": "sha256:dab74cfa21ef3f1da6313c065fc8eaac8de7c783e4572821de64879da0b1bf6c"
+            "hash": "dab74cfa21ef3f1da6313c065fc8eaac8de7c783e4572821de64879da0b1bf6c"
         }
     },
     "bin": "archon.exe",
