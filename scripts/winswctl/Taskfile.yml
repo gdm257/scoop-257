@@ -74,7 +74,7 @@ tasks:
         fi
         powershell -NoProfile -Command "Copy-Item 'winsw.exe' '$exe'"
         if [ ! -f "$cfg" ]; then
-          powershell -NoProfile -Command "@('\$schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json','id: {{.SVC}}','name: {{.SVC}}','description: {{.SVC}} service','executable:') | Set-Content '$cfg'"
+          powershell -NoProfile -Command "@('\$schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json','id: {{.SVC}}','name: {{.SVC}}','description: {{.SVC}} service','delayedAutoStart: true','hideWindow: true','workingDirectory:','executable:','arguments:') | Set-Content '$cfg'"
           echo "Created config: $cfg"
         fi
         echo "Added service: {{.SVC}}"
