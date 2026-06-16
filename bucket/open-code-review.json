@@ -14,7 +14,7 @@
             "hash": "sha256:b5fae66ef42088a85fa11be811911a1475491cb6d5769813c809fb85a2096286"
         }
     },
-    "bin": ["opencodereview.exe", ["ocr", "opencodereview.exe"]],
+    "bin": ["opencodereview.exe", ["opencodereview.exe", "ocr"]],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
