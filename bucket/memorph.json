@@ -4,6 +4,7 @@
     "description": "memorph is a session memory management tool that exports and switches valuable context between different AI coding agents",
     "homepage": "https://github.com/ip2a/memorph",
     "license": "MIT",
+    "depends": ["main/nanazip"],
     "architecture": {
         "64bit": {
             "url": [
