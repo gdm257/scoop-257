@@ -1,5 +1,5 @@
 {
-    "version": "3.20.1",
+    "version": "3.20.2",
     "description": "Mirror GitHub repositories to self-hosted Gitea instance",
     "homepage": "https://github.com/RayLabsHQ/gitea-mirror",
     "license": "GPL-3.0-only",
@@ -12,9 +12,9 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/RayLabsHQ/gitea-mirror/archive/refs/tags/v3.20.1.zip",
-            "hash": "a930499c7413279e25a8f41eefb1fefe652b66c9857e40084e084f6ab4602dff",
-            "extract_dir": "gitea-mirror-3.20.1"
+            "url": "https://github.com/RayLabsHQ/gitea-mirror/archive/refs/tags/v3.20.2.zip",
+            "hash": "26839556b9d8df2dfe1c12fd820b61e44823fe2cb60b0555a81f3e8323faa2f0",
+            "extract_dir": "gitea-mirror-3.20.2"
         }
     },
     "persist": [
