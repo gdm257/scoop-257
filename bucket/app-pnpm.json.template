@@ -1,0 +1,24 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "",
+    "description": "",
+    "homepage": "",
+    "license": "",
+    "suggest": { "pnpm": ["pnpm"], "Node.js": ["nodejs-lts"] },
+    "url": "https://unlicense.org/UNLICENSE",
+    "pre_install": [
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.vbs') -Destination (Join-Path $dir 'command-wrap.vbs')",
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.cmd') -Destination (Join-Path $dir 'command-wrap.cmd')"
+    ],
+    "installer": {
+        "script": [
+            "git clone --recurse-submodules https://github.com/owner/repo \"$dir\\repo\"",
+            "Get-ChildItem \"$dir\\repo\\*\" -Force | Move-Item -Destination \"$dir\" ",
+            "pnpm install"
+        ]
+    },
+    "bin": [["command-wrap.cmd", "shim-name", "node main.js"]],
+    "shortcuts": [
+        ["command-wrap.vbs", "GUI Name", "node main.js", "Icon.ico"]
+    ]
+}

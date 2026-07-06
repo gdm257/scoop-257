@@ -1,0 +1,26 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "",
+    "description": "",
+    "homepage": "",
+    "license": "",
+    "suggest": { "uv": ["main/uv"] },
+    "url": "https://unlicense.org/UNLICENSE",
+    "pre_install": [
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.vbs') -Destination (Join-Path $dir 'command-wrap.vbs')",
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.cmd') -Destination (Join-Path $dir 'command-wrap.cmd')"
+    ],
+    "installer": {
+        "script": [
+            "git clone --recurse-submodules https://github.com/owner/repo \"$dir\\repo\"",
+            "Get-ChildItem \"$dir\\repo\\*\" -Force | Move-Item -Destination \"$dir\" ",
+            "uv --directory \"$dir\" init",
+            "uv --directory \"$dir\" add -r requirements.txt",
+            "uv --directory \"$dir\" sync"
+        ]
+    },
+    "bin": [["command-wrap.cmd", "shim-name", "uv run main.py"]],
+    "shortcuts": [
+        ["command-wrap.vbs", "GUI Name", "uv run main.pyw", "Icon.ico"]
+    ]
+}
