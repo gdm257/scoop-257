@@ -11,7 +11,11 @@
             "extract_dir": ["ghost-proxifier-amd64"]
         }
     },
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\config.json\")) { New-Item -ItemType Directory -Path $persist_dir -Force | Out-Null; [System.IO.File]::WriteAllText(\"$persist_dir\\config.json\", '{}') }"
+    ],
     "bin": "ghost-proxifier.exe",
+    "persist": ["config.json"],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
