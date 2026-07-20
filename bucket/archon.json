@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "The first open-source harness builder for AI coding. Make AI coding deterministic and repeatable.",
     "homepage": "https://github.com/coleam00/Archon",
     "license": "MIT",
