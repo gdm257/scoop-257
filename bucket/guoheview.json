@@ -1,0 +1,21 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "3.1.0",
+    "description": "Fast image viewing, beyond speed",
+    "homepage": "https://pic.ghxi.com",
+    "license": "Freeware",
+    "architecture": {
+        "64bit": {
+            "url": "https://rj.lovestu.com/api/v1/release-files/103/download?filename=1#/dl.zip",
+            "hash": "md5:4bd9f805a40f863b000168881ab34155"
+        }
+    },
+    "extract_dir": ["GuoheViewPortable"],
+    "installer": {
+        "script": [
+            "if (!(Test-Path \"$persist_dir\\config.ini\")) { New-Item -ItemType Directory -Path $persist_dir -Force | Out-Null; [System.IO.File]::WriteAllText(\"$persist_dir\\config.ini\", '') }"
+        ]
+    },
+    "shortcuts": [["GuoheView.exe", "果核看图"]],
+    "persist": ["config.ini", "plugins"]
+}
