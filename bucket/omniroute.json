@@ -1,20 +1,25 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "3.8.48",
+    "version": "3.8.49",
     "description": "Never stop coding. Free AI gateway: one endpoint, 231+ providers (50+ free), connect Claude Code, Codex, Cursor, Cline & Copilot to FREE Claude/GPT/Gemini. RTK+Caveman stacked compression saves 15-95% tokens, smart auto-fallback, MCP/A2A, multimodal APIs, Desktop/PWA",
     "homepage": "https://github.com/diegosouzapw/OmniRoute",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/diegosouzapw/OmniRoute/releases/download/v3.8.48/OmniRoute.exe#/dl.7z",
-            "hash": "sha256:c92a405b8fc956d2e05a080d03c96fcf2fb20dffcee04f52b55873525384b93b"
+            "url": "https://github.com/diegosouzapw/OmniRoute/releases/download/v3.8.49/OmniRoute.exe#/dl.7z",
+            "hash": "94714be3f7b7cda686c96ca6e2d0da047a95119add4c950e0814a6e1f5d3712e"
         }
     },
     "pre_install": [
         "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
         "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
     ],
-    "shortcuts": [["OmniRoute.exe", "OmniRoute"]],
+    "shortcuts": [
+        [
+            "OmniRoute.exe",
+            "OmniRoute"
+        ]
+    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
