@@ -20,9 +20,9 @@
             "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
         ]
     },
-    "shortcuts": {
+    "shortcuts": [
         ["Penpot Desktop.exe", "Penpot Desktop"]
-    },
+    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
