@@ -1,14 +1,14 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.23.1",
+    "version": "0.23.2",
     "description": "Aggregate and browse AI coding agent sessions (Claude Code, Codex, Gemini CLI, etc.) in one place. Desktop app, self-hosted server, or Docker",
     "homepage": "https://github.com/xintaofei/codeg",
     "license": "Apache-2.0",
     "depends": "main/nanazip",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/xintaofei/codeg/releases/download/v0.23.1/codeg_0.23.1_x64-setup.exe#/nsis.exe",
-            "hash": "518d6480e63895c1eb6fe5cf656e0795536d421e34880f58f0b1cdd1ee015787"
+            "url": "https://github.com/xintaofei/codeg/releases/download/v0.23.2/codeg_0.23.2_x64-setup.exe#/nsis.exe",
+            "hash": "368b50bef198699d29f25bc3d8fe49a70cb8076517936f3ac1b6d27686b54b34"
         }
     },
     "installer": {
