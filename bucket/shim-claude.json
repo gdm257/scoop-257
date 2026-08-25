@@ -9,5 +9,5 @@
     "installer": {
         "script": "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.cmd') -Destination (Join-Path $dir 'command-wrapper.cmd') -Force"
     },
-    "bin": [["command-wrapper.cmd", "claude", "\"claude-code-best,claude.exe,claurst\""]]
+    "bin": [["command-wrapper.cmd", "claude", "claude-code-best+claude.exe+claurst"]]
 }

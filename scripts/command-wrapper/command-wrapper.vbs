@@ -8,8 +8,9 @@ Option Explicit
 '   script's dir, not the caller's cwd.
 ' Why a .vbs: a .lnk whose TargetPath is a .cmd/.bat flashes a console on launch (cmd.exe
 ' always allocates one). Launched via wscript.exe, a .vbs has NO console, so the GUI
-' shortcut starts silently. WSH splits args on whitespace only -- commas are NOT delimiters,
-' so multi-candidate lists need NO quoting here (unlike the .cmd port).
+' shortcut starts silently. WSH splits args on whitespace only -- '+' or ',' pass through
+' unsplit, so multi-candidate lists need NO quoting here (unlike the .cmd port, where
+' a bare comma IS split and only '+' is quote-free).
 
 Dim sh, fso, args, candidates, cand, rest, workdir, i, resolved
 Set sh   = CreateObject("WScript.Shell")
@@ -18,7 +19,8 @@ Set args = WScript.Arguments
 
 If args.Count = 0 Then Fail "no candidates provided"
 
-candidates = Split(args(0), ",")
+' '+'-separated candidates, tried in order; comma also accepted (normalize then split).
+candidates = Split(Replace(args(0), "+", ","), ",")
 workdir = ""
 rest = ""
 i = 1

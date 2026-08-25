@@ -3,7 +3,7 @@
     Run the first available command from a candidate list, forwarding extra arguments.
 
 .PARAMETER Candidates
-    Comma-separated list of executable names to try in order.
+    Candidate executables to try in order, '+'-separated (comma also accepted).
 .PARAMETER UserArgs
     Optional arguments to append to the resolved command.
     A "--workdir <path>" pair anywhere in these is intercepted (not forwarded) and
@@ -20,7 +20,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$candidateList = ($Candidates -join ',') -split ','
+$candidateList = ($Candidates -join ',') -split '[+,]'
 
 $workDir = $null
 if ($UserArgs) {

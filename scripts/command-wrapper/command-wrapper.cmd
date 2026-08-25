@@ -5,13 +5,14 @@ rem %~dp0 resolves against the shifted arg list and returns a wrong directory.
 set "scriptdir=%~dp0"
 
 rem command-wrapper.cmd -- .cmd equivalent of scripts/command-wrapper.ps1
-rem   %1   = comma-separated candidate executables, tried in order (first in PATH wins)
+rem   %1   = '+'-separated candidate executables, tried in order (first in PATH wins)
 rem   %2+  = forwarded to the resolved command
 rem   A "--workdir <path>" pair anywhere in %2+ is intercepted (not forwarded) and
 rem   sets the wrapped command's working dir; relative paths resolve against THIS
 rem   script's dir, not the caller's cwd.
-rem NOTE: cmd.exe splits a BARE comma into separate args, so a multi-candidate list MUST be
-rem passed quoted, e.g.  command-wrapper.cmd "ugrep,egrep.exe" ...  (single candidates need no quotes).
+rem NOTE: '+' is the separator precisely because cmd.exe splits a BARE comma into
+rem   separate args, so  command-wrapper.cmd ugrep+egrep.exe ...  needs no quoting
+rem   (a quoted "ugrep,egrep.exe" also works -- comma stays accepted).
 rem Why a .cmd: a Windows .lnk whose TargetPath is a .ps1 opens in Notepad on double-click
 rem (the default Open verb for .ps1 is edit), so it never executes. A .cmd IS executed.
 
@@ -56,7 +57,10 @@ if defined workdir (
     cd /d "!wd!"
 )
 
-for %%C in (%candidates%) do (
+rem '+' -> ',': the for-set splits on commas natively, so quoted comma lists keep working.
+rem MUST be percent (not delayed) expansion: delayed results are not re-parsed as syntax,
+rem so the commas would never split the set.
+for %%C in (%candidates:+=,%) do (
     where %%C >nul 2>nul
     if not errorlevel 1 (
         %%C !rest!
