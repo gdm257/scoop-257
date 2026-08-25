@@ -27,7 +27,7 @@ if ($UserArgs) {
     $argList = [System.Collections.Generic.List[string]]$UserArgs
     $i = $argList.IndexOf('--workdir')
     if ($i -ge 0) {
-        if ($i + 1 -ge $argList.Count) { Write-Error 'command-wrap: --workdir requires a value' }
+        if ($i + 1 -ge $argList.Count) { Write-Error 'command-wrapper: --workdir requires a value' }
         $workDir = $argList[$i + 1]
         $argList.RemoveRange($i, 2)
         $UserArgs = $argList.ToArray()
@@ -38,7 +38,7 @@ if ($workDir) {
     if (-not [IO.Path]::IsPathRooted($workDir)) { $workDir = Join-Path $PSScriptRoot $workDir }
     # try/catch instead of a pre-check: Win32 normalization strips trailing dots ("...." -> "."),
     # so existence probes lie about degenerate paths that Push-Location then rejects.
-    try { Push-Location -LiteralPath $workDir } catch { Write-Error "command-wrap: workdir not found: $workDir" }
+    try { Push-Location -LiteralPath $workDir } catch { Write-Error "command-wrapper: workdir not found: $workDir" }
 }
 
 foreach ($cmd in $candidateList) {
@@ -49,5 +49,5 @@ foreach ($cmd in $candidateList) {
     }
 }
 
-Write-Error "command-wrap: none of ($Candidates) found in PATH"
+Write-Error "command-wrapper: none of ($Candidates) found in PATH"
 exit 1

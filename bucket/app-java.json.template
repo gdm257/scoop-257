@@ -7,8 +7,8 @@
     "suggest": { "JDK": ["java/openjdk"] },
     "url": "https://unlicense.org/UNLICENSE",
     "pre_install": [
-        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.vbs') -Destination (Join-Path $dir 'command-wrap.vbs')",
-        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.cmd') -Destination (Join-Path $dir 'command-wrap.cmd')"
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.vbs') -Destination (Join-Path $dir 'command-wrapper.vbs')",
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.cmd') -Destination (Join-Path $dir 'command-wrapper.cmd')"
     ],
     "installer": {
         "script": [
@@ -17,8 +17,8 @@
             "mvn package -DskipTests"
         ]
     },
-    "bin": [["command-wrap.cmd", "shim-name", "java -jar target/app.jar"]],
+    "bin": [["command-wrapper.cmd", "shim-name", "java -jar target/app.jar"]],
     "shortcuts": [
-        ["command-wrap.vbs", "GUI Name", "java -jar target/app.jar", "Icon.ico"]
+        ["command-wrapper.vbs", "GUI Name", "java -jar target/app.jar", "Icon.ico"]
     ]
 }

@@ -7,8 +7,8 @@
     "suggest": { "uv": ["main/uv"] },
     "url": "https://unlicense.org/UNLICENSE",
     "pre_install": [
-        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.vbs') -Destination (Join-Path $dir 'command-wrap.vbs')",
-        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrap.cmd') -Destination (Join-Path $dir 'command-wrap.cmd')"
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.vbs') -Destination (Join-Path $dir 'command-wrapper.vbs')",
+        "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.cmd') -Destination (Join-Path $dir 'command-wrapper.cmd')"
     ],
     "installer": {
         "script": [
@@ -19,8 +19,8 @@
             "uv --directory \"$dir\" sync"
         ]
     },
-    "bin": [["command-wrap.cmd", "shim-name", "uv run main.py"]],
+    "bin": [["command-wrapper.cmd", "shim-name", "uv run main.py"]],
     "shortcuts": [
-        ["command-wrap.vbs", "GUI Name", "uv run main.pyw", "Icon.ico"]
+        ["command-wrapper.vbs", "GUI Name", "uv run main.pyw", "Icon.ico"]
     ]
 }

@@ -1,6 +1,6 @@
 Option Explicit
 
-' command-wrap.vbs -- no-console-window equivalent of command-wrap.ps1 / .cmd
+' command-wrapper.vbs -- no-console-window equivalent of command-wrapper.ps1 / .cmd
 '   arg(0) = comma-separated candidate executables, tried in order (first in PATH wins)
 '   arg(1+)= forwarded to the resolved command
 '   A "--workdir <path>" pair anywhere in arg(1+) is intercepted (not forwarded) and
@@ -86,6 +86,6 @@ End Function
 
 Sub Fail(msg)
     ' WScript.Echo -> stdout under cscript, message box under wscript (error feedback either way).
-    WScript.Echo "command-wrap: " & msg
+    WScript.Echo "command-wrapper: " & msg
     WScript.Quit 1
 End Sub
