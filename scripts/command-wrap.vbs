@@ -3,12 +3,15 @@ Option Explicit
 ' command-wrap.vbs -- no-console-window equivalent of command-wrap.ps1 / .cmd
 '   arg(0) = comma-separated candidate executables, tried in order (first in PATH wins)
 '   arg(1+)= forwarded to the resolved command
+'   A "--workdir <path>" pair anywhere in arg(1+) is intercepted (not forwarded) and
+'   sets the wrapped command's working dir; relative paths resolve against THIS
+'   script's dir, not the caller's cwd.
 ' Why a .vbs: a .lnk whose TargetPath is a .cmd/.bat flashes a console on launch (cmd.exe
 ' always allocates one). Launched via wscript.exe, a .vbs has NO console, so the GUI
 ' shortcut starts silently. WSH splits args on whitespace only -- commas are NOT delimiters,
 ' so multi-candidate lists need NO quoting here (unlike the .cmd port).
 
-Dim sh, fso, args, candidates, cand, rest, i, resolved
+Dim sh, fso, args, candidates, cand, rest, workdir, i, resolved
 Set sh   = CreateObject("WScript.Shell")
 Set fso  = CreateObject("Scripting.FileSystemObject")
 Set args = WScript.Arguments
@@ -16,10 +19,28 @@ Set args = WScript.Arguments
 If args.Count = 0 Then Fail "no candidates provided"
 
 candidates = Split(args(0), ",")
+workdir = ""
 rest = ""
-For i = 1 To args.Count - 1
-    If rest = "" Then rest = args(i) Else rest = rest & " " & args(i)
-Next
+i = 1
+Do While i < args.Count
+    If LCase(args(i)) = "--workdir" Then
+        If i + 1 >= args.Count Then Fail "--workdir requires a value"
+        workdir = args(i + 1)
+        i = i + 2
+    Else
+        If rest = "" Then rest = args(i) Else rest = rest & " " & args(i)
+        i = i + 1
+    End If
+Loop
+
+If workdir <> "" Then
+    ' Absolute = "X:\..." or leading "\"/UNC; else resolve against this script's dir.
+    If InStr(workdir, ":") <> 2 And Left(workdir, 1) <> "\" Then
+        workdir = fso.GetParentFolderName(WScript.ScriptFullName) & "\" & workdir
+    End If
+    If Not fso.FolderExists(workdir) Then Fail "workdir not found: " & workdir
+    sh.CurrentDirectory = workdir
+End If
 
 For Each cand In candidates
     cand = Trim(cand)
