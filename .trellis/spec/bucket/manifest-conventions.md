@@ -81,6 +81,8 @@ Cross-bucket refs: `"main/7zip"`, `"extras/vcredist2022"`.
 
 All accept string or array of strings (PowerShell). Use `$dir`, `$persist_dir`, `$bucketsdir`, `$bucket`.
 
+`--global` 只改变安装目录和作用域；脚本仍在启动 `scoop` 的当前 PowerShell 进程内，以该进程的 Windows 用户/token 执行。全局安装要求当前进程是管理员，但 Scoop 不会切换到 `SYSTEM`，也不会为脚本单独提权。
+
 ### bin
 
 ```json
