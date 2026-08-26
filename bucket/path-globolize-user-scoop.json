@@ -8,6 +8,8 @@
     "url": ["https://unlicense.org/UNLICENSE"],
     "installer": {
         "script": [
+            "$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)",
+            "if (-not $isAdmin) { throw 'path-globolize-user-scoop: writing Machine PATH requires an elevated shell (sudo/scoop sudo)' }",
             "$root = scoop config root_path; if (-not $root) { $root = \"$env:USERPROFILE\\scoop\" }",
             "$shims = Join-Path $root 'shims'",
             "$machinePath = [Environment]::GetEnvironmentVariable('Path', 'Machine')",
@@ -16,6 +18,8 @@
     },
     "uninstaller": {
         "script": [
+            "$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)",
+            "if (-not $isAdmin) { Write-Warning 'path-globolize-user-scoop: skipping Machine PATH cleanup, not elevated'; exit 0 }",
             "$root = scoop config root_path; if (-not $root) { $root = \"$env:USERPROFILE\\scoop\" }",
             "$shims = Join-Path $root 'shims'",
             "$machinePath = [Environment]::GetEnvironmentVariable('Path', 'Machine')",
