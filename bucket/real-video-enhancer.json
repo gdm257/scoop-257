@@ -13,7 +13,10 @@
     "extract_dir": "REAL-Video-Enhancer",
     "shortcuts": [["REAL-Video-Enhancer.exe", "Real Video Enhancer"]],
     "persist": ["custom-models"],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/TNTwise/REAL-Video-Enhancer",
+        "regex": "releases/tag/RVE-([\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

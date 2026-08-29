@@ -10,7 +10,10 @@
         }
     },
     "bin": "hx.exe",
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/usagi-flow/evil-helix",
+        "regex": "releases/tag/release-(\\d+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

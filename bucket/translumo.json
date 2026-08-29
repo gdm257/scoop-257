@@ -15,11 +15,14 @@
             "Translumo"
         ]
     ],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/ramjke/Translumo",
+        "regex": "releases/tag/v\\.([\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/ramjke/Translumo/releases/download/v$version/Translumo_$version.zip#/dl.7z"
+                "url": "https://github.com/ramjke/Translumo/releases/download/v.$version/Translumo_$version.zip#/dl.7z"
             }
         }
     }

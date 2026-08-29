@@ -11,7 +11,10 @@
         }
     },
     "shortcuts": [["NSMusicS.exe", "NSMusicS"]],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/Super-Badmen-Viper/NSMusicS",
+        "regex": "releases/tag/NSMusicS-v([\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

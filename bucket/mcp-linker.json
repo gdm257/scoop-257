@@ -1,7 +1,7 @@
 {
     "version": "1.7.2",
     "description": "mcp manager, add & syncs MCP server configurations across clients like Claude, Cursor💡 build-in AI assistant",
-    "homepage": "https://github.com/milisp/mcp-linker?tab=readme-ov-file",
+    "homepage": "https://github.com/milisp/mcp-linker",
     "license": "MIT",
     "architecture": {
         "64bit": {
@@ -18,7 +18,9 @@
             "MCP Linker"
         ]
     ],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/milisp/mcp-linker"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

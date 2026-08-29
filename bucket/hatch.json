@@ -17,7 +17,10 @@
         }
     },
     "bin": "hatch.exe",
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/pypa/hatch",
+        "regex": "releases/tag/hatch-v([\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

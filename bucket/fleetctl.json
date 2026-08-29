@@ -11,7 +11,10 @@
             "bin": "fleetctl.exe"
         }
     },
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/fleetdm/fleet",
+        "regex": "releases/tag/fleet-v([\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

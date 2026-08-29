@@ -16,11 +16,15 @@
             ]
         }
     },
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/jiangtian616/JHenTai",
+        "regex": "releases/tag/v(?<base>[\\d.]+)(?:\\+|%2B)(?<build>\\d+)",
+        "replace": "${base}+${build}"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/jiangtian616/JHenTai/releases/download/v$version/JHenTai_$version_Windows.zip",
+                "url": "https://github.com/jiangtian616/JHenTai/releases/download/v$matchBase%2B$matchBuild/JHenTai_$version_Windows.zip",
                 "extract_dir": "JHenTai_$version"
             }
         }

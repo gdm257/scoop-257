@@ -20,11 +20,14 @@
             ]
         }
     },
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/PantsuDango/Dango-Translator",
+        "regex": "releases/tag/Ver\\.([\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/PantsuDango/Dango-Translator/releases/download/Ver$version/zip_$version.zip"
+                "url": "https://github.com/PantsuDango/Dango-Translator/releases/download/Ver.$version/zip_$version.zip"
             }
         }
     }

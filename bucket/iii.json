@@ -38,7 +38,8 @@
     },
     "bin": ["iii.exe", "iii-console.exe"],
     "checkver": {
-        "github": "https://github.com/iii-hq/iii"
+        "github": "https://github.com/iii-hq/iii",
+        "regex": "releases/tag/iii(?:%2F|/)v([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

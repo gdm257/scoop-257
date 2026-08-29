@@ -23,7 +23,10 @@
         ]
     ],
     "extract_to": "",
-    "checkver": "github",
+    "checkver": {
+        "url": "https://github.com/kevin2li/pdf-guru/tags.atom",
+        "regex": "releases/tag/v([\\d.]+)"
+    },
     "autoupdate": {
         "url": "https://github.com/kevin2li/PDF-Guru/releases/download/v$version/pdf-guru-windows-amd64-$version.zip"
     }
