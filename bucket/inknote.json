@@ -1,18 +1,29 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.2.2",
+    "version": "0.2.4",
     "description": "一款本地优先、所见即所得的跨平台 Markdown 编辑器。InkNote 使用 Tauri 2、React 与 CodeMirror 6 构建，源文件始终保持为标准 Markdown",
     "homepage": "https://github.com/likehao19/InkNote",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/likehao19/InkNote/releases/download/v0.2.2/InkNote-Windows-x64-Setup.exe#/dl.7z",
-            "hash": "sha256:acb7040c21abe85fda94e9b3d88d42e5ffc999e0e578e7a67e4d5669fb2f9daa"
+            "url": "https://github.com/likehao19/InkNote/releases/download/v0.2.4/InkNote-Windows-x64-Setup.exe#/dl.7z",
+            "hash": "0cc3d88a4d5e7b7a6188f84ae5219b111098dcd03b9d426632ec081c66000d5e"
         }
     },
-    "installer": {"script": ["Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"]},
-    "shortcuts": [["inknote.exe", "InkNote"], ["inknote.exe", "墨笺"]],
-    "bin": ["inknote.exe"],
+    "installer": {
+        "script": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
+    },
+    "shortcuts": [
+        [
+            "inknote.exe",
+            "InkNote"
+        ],
+        [
+            "inknote.exe",
+            "墨笺"
+        ]
+    ],
+    "bin": "inknote.exe",
     "checkver": "github",
     "autoupdate": {
         "architecture": {
