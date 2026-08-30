@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "3.2.0",
+    "version": "3.2.7",
     "description": "Fast image viewing, beyond speed",
     "homepage": "https://pic.ghxi.com",
     "license": "Freeware",
     "architecture": {
         "64bit": {
-            "url": "https://rj.lovestu.com/api/v1/release-files/106/download?filename=1#/dl.zip",
-            "hash": "md5:f9586da58abdb3e755c5932c82d287b6"
+            "url": "https://rj.lovestu.com/api/v1/release-files/131/download?filename=1#/dl.zip",
+            "hash": "sha256:f577d810f4da0b749526937406fbb1699bb8da029334efa0fb5d31ea629630eb"
         }
     },
     "extract_dir": ["GuoheViewPortable"],
