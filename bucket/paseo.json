@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.6.1",
+    "version": "0.7.0",
     "description": "Orchestrate coding agents remotely from your phone, desktop and CLI",
     "homepage": "https://github.com/getpaseo/paseo",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/getpaseo/paseo/releases/download/v0.6.1/Paseo-Setup-0.6.1-x64.zip",
-            "hash": "d061bcd8a685953c72855efc22eaf104dbd8dcaf555d4bb1d8959f5c6eb6d670"
+            "url": "https://github.com/getpaseo/paseo/releases/download/v0.7.0/Paseo-Setup-0.7.0-x64.zip",
+            "hash": "20343c0e7a07a7bf40e5cc18829ef13e3f940e0a17e0f165f3bcbdc70066b9b2"
         }
     },
     "bin": "resources/bin/paseo.cmd",
