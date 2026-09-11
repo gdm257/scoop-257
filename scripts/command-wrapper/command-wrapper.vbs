@@ -3,27 +3,38 @@ Option Explicit
 ' command-wrapper.vbs -- no-console-window equivalent of command-wrapper.ps1 / .cmd
 '   arg(0) = comma-separated candidate executables, tried in order (first in PATH wins)
 '   arg(1+)= forwarded to the resolved command
-'   A "--workdir <path>" pair anywhere in arg(1+) is intercepted (not forwarded) and
-'   sets the wrapped command's working dir; relative paths resolve against THIS
-'   script's dir, not the caller's cwd.
+'   An optional "--workdir <path>" may lead arg(0) or appear anywhere in arg(1+); the
+'   pair is intercepted (not forwarded) and sets the wrapped command's working dir;
+'   relative paths resolve against THIS script's dir, not the caller's cwd.
 ' Why a .vbs: a .lnk whose TargetPath is a .cmd/.bat flashes a console on launch (cmd.exe
 ' always allocates one). Launched via wscript.exe, a .vbs has NO console, so the GUI
 ' shortcut starts silently. WSH splits args on whitespace only -- '+' or ',' pass through
 ' unsplit, so multi-candidate lists need NO quoting here (unlike the .cmd port, where
 ' a bare comma IS split and only '+' is quote-free).
 
-Dim sh, fso, args, candidates, cand, rest, workdir, i, resolved
+Dim sh, fso, args, candidates, candlist, cand, rest, workdir, i, resolved
 Set sh   = CreateObject("WScript.Shell")
 Set fso  = CreateObject("Scripting.FileSystemObject")
 Set args = WScript.Arguments
 
 If args.Count = 0 Then Fail "no candidates provided"
 
-' '+'-separated candidates, tried in order; comma also accepted (normalize then split).
-candidates = Split(Replace(args(0), "+", ","), ",")
 workdir = ""
+i = 0
+' Leading "--workdir <path>" before the candidate list; a later pair in the loop below
+' overrides it (last one wins).
+If LCase(args(0)) = "--workdir" Then
+    If args.Count < 2 Then Fail "--workdir requires a value"
+    workdir = args(1)
+    i = 2
+    If i >= args.Count Then Fail "no candidates provided"
+End If
+
+' '+'-separated candidates, tried in order; comma also accepted (normalize then split).
+candlist = args(i)
+i = i + 1
+candidates = Split(Replace(candlist, "+", ","), ",")
 rest = ""
-i = 1
 Do While i < args.Count
     If LCase(args(i)) = "--workdir" Then
         If i + 1 >= args.Count Then Fail "--workdir requires a value"
@@ -56,7 +67,7 @@ For Each cand In candidates
     End If
 Next
 
-Fail "none of (" & args(0) & ") found in PATH"
+Fail "none of (" & candlist & ") found in PATH"
 
 ' ---------------- helpers ----------------
 
