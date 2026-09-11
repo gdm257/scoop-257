@@ -25,9 +25,18 @@
         }
     },
     "installer": {
-        "script": "if (!(Test-Path \"$persist_dir\\mousemaster.properties\")) { New-Item -ItemType Directory -Path $persist_dir -Force | Out-Null; [System.IO.File]::WriteAllText(\"$persist_dir\\mousemaster.properties\", '') }"
+        "script": [
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.cmd') -Destination (Join-Path $dir 'command-wrapper.cmd') -Force",
+            "if (!(Test-Path \"$persist_dir\\mousemaster.properties\")) { New-Item -ItemType Directory -Path $persist_dir -Force | Out-Null; [System.IO.File]::WriteAllText(\"$persist_dir\\mousemaster.properties\", '') }"
+        ]
     },
-    "bin": "mousemaster.exe",
+    "bin": [
+        [
+            "command-wrapper.cmd",
+            "mousemaster",
+            "mousemaster.exe --workdir ."
+        ]
+    ],
     "shortcuts": [
         [
             "mousemaster.exe",
