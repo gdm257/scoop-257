@@ -1,0 +1,9 @@
+$schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json
+id: __SVC__
+name: __SVC__
+description: __SVC__ service
+delayedAutoStart: true
+hideWindow: true
+workingDirectory:
+executable:
+arguments:

@@ -76,17 +76,7 @@ tasks:
         fi
         cp winsw.exe "$exe"
         if [ ! -f "$cfg" ]; then
-          cat > "$cfg" <<'EOF'
-        $schema: https://raw.githubusercontent.com/winsw/winsw/v2/doc/yamlConfigurationSchema.json
-        id: {{.SVC}}
-        name: {{.SVC}}
-        description: {{.SVC}} service
-        delayedAutoStart: true
-        hideWindow: true
-        workingDirectory:
-        executable:
-        arguments:
-        EOF
+          while IFS= read -r line; do printf '%s\n' "${line//__SVC__/{{.SVC}}}"; done < template.yml > "$cfg"
           echo "Created config: $cfg"
         fi
         echo "Added service: {{.SVC}}"
