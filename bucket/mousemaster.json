@@ -34,7 +34,7 @@
         [
             "command-wrapper.cmd",
             "mousemaster",
-            "mousemaster.exe --workdir ."
+            "--workdir . mousemaster.exe"
         ]
     ],
     "shortcuts": [
