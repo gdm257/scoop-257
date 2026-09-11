@@ -73,3 +73,24 @@ Created python3-shim Scoop manifest with generic which-shim script (which.ps1/wh
 ### Next Steps
 
 - None - task complete
+
+
+## Session 3: command-wrapper: allow leading --workdir
+
+**Date**: 2026-09-12
+**Task**: command-wrapper: allow leading --workdir
+**Branch**: `master`
+
+### Summary
+
+command-wrapper 三入口(ps1/cmd/vbs)支持前导 --workdir <path>，尾部与无 workdir 形式不变，last-wins，错误路径 rc=1；顺带修复 .cmd 括号块内 exit /b 丢退出码的既有 bug；manifest 1.1.0
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `adfb7d5` | (see git log) |
+
+### Status
+
+[OK] **Completed**
