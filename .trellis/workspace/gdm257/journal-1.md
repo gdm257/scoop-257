@@ -94,3 +94,25 @@ command-wrapper 三入口(ps1/cmd/vbs)支持前导 --workdir <path>，尾部与�
 ### Status
 
 [OK] **Completed**
+
+
+## Session 4: winstctl: IaC manage Windows scheduled tasks
+
+**Date**: 2026-09-12
+**Task**: winstctl: IaC manage Windows scheduled tasks
+**Branch**: `master`
+
+### Summary
+
+New scripts/winstctl (task + yq + schtasks XML): apply/destroy/run/import etc., bucket/winstctl.json manifest, empty-Command guard; added scripts spec layer to persist schtasks and mvdan/sh gotchas; full link smoke tested (repo + scoop install)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `8cc662a` | (see git log) |
+| `3a3bc0e` | (see git log) |
+
+### Status
+
+[OK] **Completed**
