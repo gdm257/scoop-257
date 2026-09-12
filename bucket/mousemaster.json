@@ -27,6 +27,7 @@
     "installer": {
         "script": [
             "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\command-wrapper\\command-wrapper.cmd') -Destination (Join-Path $dir 'command-wrapper.cmd') -Force",
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\mousemaster\\mousemaster-silent.vbs') -Destination (Join-Path $dir 'mousemaster-silent.vbs') -Force",
             "if (!(Test-Path \"$persist_dir\\mousemaster.properties\")) { New-Item -ItemType Directory -Path $persist_dir -Force | Out-Null; [System.IO.File]::WriteAllText(\"$persist_dir\\mousemaster.properties\", '') }"
         ]
     },
