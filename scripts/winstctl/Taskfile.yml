@@ -1,0 +1,236 @@
+$schema: https://taskfile.dev/schema.json
+version: "3"
+
+# All commands run under task's bundled mvdan/sh interpreter, which on Windows
+# ships coreutils (cat/cp/rm/ls/mkdir/mv/touch/find/xargs/mktemp/chmod/tar/gzip/
+# base64/shasum) by default. No PowerShell, no Git Bash required.
+
+silent: true
+
+vars:
+  TASKS: tasks
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  # --- Query ---
+
+  list:
+    desc: List all tasks
+    cmds:
+      - |
+        matched=0
+        for f in {{.TASKS}}/*.xml; do
+          [ -f "$f" ] || continue
+          matched=1
+          name="${f##*/}"
+          name="${name##*\\}"
+          command=$(yq -p=xml -o=props '.Task.Actions.Exec.Command // ""' "$f")
+          args=$(yq -p=xml -o=props '.Task.Actions.Exec.Arguments // ""' "$f")
+          echo "${name%.xml}: $command${args:+ $args}"
+        done
+        if [ "$matched" -eq 0 ]; then echo "No tasks found."; fi
+
+  status:*:
+    desc: Show status of a task
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found."
+          exit 1
+        fi
+        schtasks /query /tn "{{.TASK}}" /fo LIST /v
+
+  status:
+    desc: Show status of all tasks
+    cmds:
+      - |
+        matched=0
+        for f in {{.TASKS}}/*.xml; do
+          [ -f "$f" ] || continue
+          matched=1
+          name="${f##*/}"
+          name="${name##*\\}"
+          name="${name%.xml}"
+          echo "${name}:"
+          schtasks /query /tn "$name" /fo LIST /v || true
+        done
+        if [ "$matched" -eq 0 ]; then echo "No tasks found."; fi
+
+  # --- File layer: add / edit / remove ---
+
+  add:*:
+    desc: Add a new task (from template.xml)
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ -f "$xml" ]; then
+          echo "Task {{.TASK}} already exists, skipping"
+          exit 0
+        fi
+        mkdir -p {{.TASKS}}
+        while IFS= read -r line; do printf '%s\n' "${line//__TASK__/{{.TASK}}}"; done < template.xml > "$xml"
+        echo "Created task: $xml"
+        echo "Added task: {{.TASK}}"
+
+  edit:*:
+    desc: Edit task XML with default editor
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found."
+          exit 1
+        fi
+        if [ -n "$EDITOR" ]; then
+          "$EDITOR" "$xml"
+        else
+          notepad "$xml"
+        fi
+
+  remove:*:
+    desc: Remove task file
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found, nothing to remove"
+          exit 0
+        fi
+        if schtasks /query /tn "{{.TASK}}" >/dev/null 2>&1; then
+          echo "Task {{.TASK}} is still registered; run 'winstctl destroy:{{.TASK}}' to remove it from Task Scheduler"
+        fi
+        rm -f "$xml"
+        echo "Removed task: {{.TASK}}"
+
+  # --- Sync: apply / destroy ---
+
+  apply:*:
+    desc: Register task with Task Scheduler
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found. Run 'winstctl add:{{.TASK}}' first."
+          exit 1
+        fi
+        cmd=$(yq -p=xml -o=props '.Task.Actions.Exec.Command // ""' "$xml")
+        if [ -z "$cmd" ]; then
+          echo "Task {{.TASK}} has an empty Command. Run 'winstctl edit:{{.TASK}}' first."
+          exit 1
+        fi
+        schtasks /create /f /tn "{{.TASK}}" /xml "$xml"
+
+  destroy:*:
+    desc: Unregister task from Task Scheduler
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found."
+          exit 1
+        fi
+        schtasks /delete /f /tn "{{.TASK}}"
+
+  # --- Control: run / end ---
+
+  run:*:
+    desc: Run a task now
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found."
+          exit 1
+        fi
+        schtasks /run /tn "{{.TASK}}"
+
+  end:*:
+    desc: Stop a running task
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ ! -f "$xml" ]; then
+          echo "Task {{.TASK}} not found."
+          exit 1
+        fi
+        schtasks /end /tn "{{.TASK}}"
+
+  # --- Import ---
+
+  import:*:
+    desc: Import a registered task as tasks/<name>.xml
+    vars:
+      TASK: "{{index .MATCH 0}}"
+    cmds:
+      - |
+        xml="{{.TASKS}}/{{.TASK}}.xml"
+        if [ -f "$xml" ]; then
+          echo "Task {{.TASK}} already exists, skipping"
+          exit 0
+        fi
+        tmp=".{{.TASK}}.import.tmp"
+        if ! schtasks /query /tn "{{.TASK}}" /xml > "$tmp"; then
+          rm -f "$tmp"
+          exit 1
+        fi
+        mkdir -p {{.TASKS}}
+        { printf '<?xml version="1.0"?>\n'; { read -r _; cat; } < "$tmp"; } > "$xml"
+        rm -f "$tmp"
+        echo "Imported task: {{.TASK}}"
+
+  # --- Batch operations ---
+
+  apply:
+    desc: Register all tasks
+    cmds:
+      - |
+        matched=0
+        for f in {{.TASKS}}/*.xml; do
+          [ -f "$f" ] || continue
+          matched=1
+          name="${f##*/}"
+          name="${name##*\\}"
+          name="${name%.xml}"
+          cmd=$(yq -p=xml -o=props '.Task.Actions.Exec.Command // ""' "$f")
+          if [ -z "$cmd" ]; then
+            echo "Task $name has an empty Command. Run 'winstctl edit:$name' first."
+            exit 1
+          fi
+          schtasks /create /f /tn "$name" /xml "$f"
+        done
+        if [ "$matched" -eq 0 ]; then echo "No tasks found."; fi
+
+  destroy:
+    desc: Unregister all tasks
+    cmds:
+      - |
+        matched=0
+        for f in {{.TASKS}}/*.xml; do
+          [ -f "$f" ] || continue
+          matched=1
+          name="${f##*/}"
+          name="${name##*\\}"
+          name="${name%.xml}"
+          schtasks /delete /f /tn "$name"
+        done
+        if [ "$matched" -eq 0 ]; then echo "No tasks found."; fi
