@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "1.6.3",
+    "version": "1.6.4",
     "description": "A beautiful, non-destructive, and GPU-accelerated RAW image editor built with performance in mind",
     "homepage": "https://github.com/CyberTimon/RapidRAW",
     "license": "AGPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/CyberTimon/RapidRAW/releases/download/v1.6.3/01_RapidRAW_v1.6.3_windows_x64.msi",
-            "hash": "f5a9751131368becb841bd7651b229174f0e264b8f92edb3c0afc59b52914da6"
+            "url": "https://github.com/CyberTimon/RapidRAW/releases/download/v1.6.4/01_RapidRAW_v1.6.4_windows_x64.msi",
+            "hash": "724c8344cd75b3d471124db82ef3fb940ea33abcc480644a4e5f61b472e45055"
         }
     },
     "extract_dir": "PFiles/RapidRAW",
