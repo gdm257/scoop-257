@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.85.1",
+    "version": "0.86.0",
     "description": "AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods",
     "homepage": "https://github.com/badlogic/pi-mono",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/badlogic/pi-mono/releases/download/v0.85.1/pi-windows-x64.zip",
-            "hash": "002fa95b90d521245b9985d8f168caebc237ad56e7e30b319807dee1b2e17e1c"
+            "url": "https://github.com/badlogic/pi-mono/releases/download/v0.86.0/pi-windows-x64.zip",
+            "hash": "bbb55cb641b7cf888a43a5d953faa715f12de05c703893d9f8ff5f09f495051d"
         }
     },
     "bin": "pi.exe",
