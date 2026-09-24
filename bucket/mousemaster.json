@@ -38,12 +38,6 @@
             "--workdir . mousemaster.exe"
         ]
     ],
-    "shortcuts": [
-        [
-            "mousemaster.exe",
-            "Mouse Master"
-        ]
-    ],
     "persist": "mousemaster.properties",
     "checkver": "github",
     "autoupdate": {
