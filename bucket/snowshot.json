@@ -11,6 +11,7 @@
         }
     },
     "extract_dir": "bin",
+    "bin": "snow-shot-mcp.exe",
     "shortcuts": [
         ["snow_shot.exe", "Snow Shot"]
     ],
