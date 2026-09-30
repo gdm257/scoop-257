@@ -23,7 +23,8 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/revezone/revezone"
+        "github": "https://github.com/revezone/revezone",
+        "regex": "v?([\\d.]+(?:-alpha(?:\\.\\d+)?)?)"
     },
     "autoupdate": {
         "architecture": {

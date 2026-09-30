@@ -21,7 +21,10 @@
         }
     },
     "bin": "gclone.exe",
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/dogbutcat/gclone",
+        "regex": "v?([\\d.]+-mod[\\d.]+)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

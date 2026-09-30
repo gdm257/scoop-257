@@ -11,7 +11,10 @@
     },
     "extract_to": "",
     "bin": "fx.exe",
-    "checkver": "github",
+    "checkver": {
+        "url": "https://github.com/metrue/fx/releases.atom",
+        "regex": "<title[^>]*>(\\d+(?:\\.\\d+)+)</title>"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

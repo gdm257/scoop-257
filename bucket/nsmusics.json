@@ -18,7 +18,7 @@
     ],
     "checkver": {
         "github": "https://github.com/Super-Badmen-Viper/NSMusicS",
-        "regex": "releases/tag/NSMusicS-v([\\d.]+)"
+        "regex": "NSMusicS-v([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

@@ -12,7 +12,7 @@
     "bin": "hx.exe",
     "checkver": {
         "github": "https://github.com/usagi-flow/evil-helix",
-        "regex": "releases/tag/release-(\\d+)"
+        "regex": "release-(\\d+)"
     },
     "autoupdate": {
         "architecture": {

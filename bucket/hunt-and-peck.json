@@ -12,7 +12,7 @@
     "bin": "hap.exe",
     "checkver": {
         "github": "https://github.com/zsims/hunt-and-peck",
-        "regex": "releases/tag/release(?:%2F|/)([\\d.]+)"
+        "regex": "release(?:%2F|/)([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

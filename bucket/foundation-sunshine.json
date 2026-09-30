@@ -15,6 +15,6 @@
     "shortcuts": [["sunshine.exe", "Foundation Sunshine"]],
     "checkver": {
         "github": "https://github.com/AlkaidLab/foundation-sunshine",
-        "regex": "<title>Release v([^\\s<]+)"
+        "regex": "v([\\d.]+\\.杂鱼)"
     }
 }

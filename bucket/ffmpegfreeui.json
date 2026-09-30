@@ -25,7 +25,7 @@
     "persist": "Settings.json",
     "checkver": {
         "github": "https://github.com/Lake1059/FFmpegFreeUI",
-        "regex": "/releases/tag/([\\d.]+)"
+        "regex": "(?:/releases/tag/|^)([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

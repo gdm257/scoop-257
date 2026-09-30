@@ -23,7 +23,7 @@
     "persist": "data",
     "checkver": {
         "github": "https://github.com/gdm257/octopus",
-        "regex": "releases/tag/v([\\w.-]+)"
+        "regex": "v([\\w.-]+)"
     },
     "autoupdate": {
         "architecture": {

@@ -42,7 +42,7 @@
     ],
     "checkver": {
         "github": "https://github.com/iii-hq/iii",
-        "regex": "releases/tag/iii(?:%2F|/)v([\\d.]+)"
+        "regex": "iii(?:%2F|/)v([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

@@ -14,7 +14,10 @@
         "Move-Item \"$dir\\froggit-windows-amd64.exe\" \"$dir\\froggit.exe\""
     ],
     "bin": "froggit.exe",
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/thewizardshell/froggit",
+        "regex": "v?([\\d.]+(?:-beta(?:\\.\\d+)?)?)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

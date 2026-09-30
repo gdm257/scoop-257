@@ -23,7 +23,8 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/moeru-ai/airi"
+        "github": "https://github.com/moeru-ai/airi",
+        "regex": "v?([\\d.]+(?:-beta(?:\\.\\d+)?)?)"
     },
     "autoupdate": {
         "architecture": {

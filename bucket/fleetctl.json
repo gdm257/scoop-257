@@ -13,7 +13,7 @@
     },
     "checkver": {
         "github": "https://github.com/fleetdm/fleet",
-        "regex": "releases/tag/fleet-v([\\d.]+)"
+        "regex": "fleet-v([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

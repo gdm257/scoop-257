@@ -22,7 +22,7 @@
     },
     "checkver": {
         "github": "https://github.com/PantsuDango/Dango-Translator",
-        "regex": "releases/tag/Ver\\.([\\d.]+)"
+        "regex": "Ver\\.?([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

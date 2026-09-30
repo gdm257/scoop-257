@@ -19,7 +19,7 @@
     "bin": "hatch.exe",
     "checkver": {
         "github": "https://github.com/pypa/hatch",
-        "regex": "releases/tag/hatch-v([\\d.]+)"
+        "regex": "hatch-v([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

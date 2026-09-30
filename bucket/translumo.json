@@ -17,7 +17,7 @@
     ],
     "checkver": {
         "github": "https://github.com/ramjke/Translumo",
-        "regex": "releases/tag/v\\.([\\d.]+)"
+        "regex": "v\\.([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {
