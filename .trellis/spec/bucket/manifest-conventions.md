@@ -139,6 +139,29 @@ Displayed after install. Use for setup instructions, caveats.
 
 `$version` is interpolated from checkver result.
 
+### checkver 两种匹配模式（关键）
+
+`checkver.github`（含自定义 `regex`）的行为取决于环境有无 `GITHUB_TOKEN`（excavator CI 有，本地一般没有）：
+
+| 模式 | 触发条件 | regex 匹配对象 | 可用锚 |
+| ---- | -------- | -------------- | ------ |
+| **API 模式** | 环境有 `GITHUB_TOKEN` | `/releases/latest` 的裸 `tag_name`（JSON `$.tag_name`） | 只能匹配 tag 本体 |
+| HTML 模式 | 无 token | releases/latest 页面 HTML 源码 | `releases/tag/…`、`<title>`、资产名等 |
+
+本 bucket 的主运行环境是 excavator（API 模式），所以：
+
+- regex **不得**带 `releases/tag/`、`<title>` 等 HTML 锚——API 模式下永远失配，日志表现为 `couldn't match 'releases/tag/…'`
+- 版本只在 release **name**（tag 是 `26`/`untagged-<hash>`）的项目，用显式 `checkver.url` 指向 releases/latest 页面 + 匹配标题的 regex
+- 想锁定稳定版/主版本（跳过 prerelease）：用 `https://github.com/<repo>/releases.atom` + `</title>` 锚定 regex（注意 atom 只含最新 ~10 条）
+
+### 默认 regex 的破折号缺陷
+
+`"checkver": "github"` 不带 `regex` 时，默认 `(?:v|V)?([\d.-]+)` 遇 prerelease tag（如 `v1.4.0-rc.1`）产出畸形版本 `1.4.0-`。凡上游存在 prerelease tag 的 manifest 必须显式写 regex 并捕获完整后缀。
+
+### autoupdate 与 checkver 捕获组的耦合
+
+checkver regex 的命名组（`(?<base>…)`）与 autoupdate 的 `$matchBase` 模板是上下游契约；用 `replace` 时同理。改 checkver regex 前先查 autoupdate 引用了哪些组，不得破坏。
+
 ## Portable Manifests
 
 - No `uninstaller` needed — Scoop removes `$dir` on uninstall
@@ -161,6 +184,14 @@ COM `WScript.Shell.CreateShortcut` uses ANSI — non-system-default characters p
 
 `scoop bucket rm <name> && scoop bucket add <name>` — fastest fix for broken bucket state.
 
+### checkver regex 在 API 模式失配
+
+**Symptom**: excavator 日志大量 `couldn't match 'releases/tag/…' in api.github.com/…/releases/latest`，本地 `scoop checkver` 却通过。
+
+**Cause**: 本地走 HTML 模式，excavator 带 token 走 API 模式，regex 只匹配裸 `tag_name`（见上文"checkver 两种匹配模式"）。
+
+**Prevention**: 写/改 checkver regex 时以 API 模式为准；本地验证可用带 token 的请求对照 `tag_name`。
+
 ## Pattern: which-shim
 
 Generic PATH-based command fallback. Candidates as semicolon-separated first argument.
@@ -175,5 +206,6 @@ Generic PATH-based command fallback. Candidates as semicolon-separated first arg
     "bin": [["shim\\which.cmd", "python3", "python3.exe;python.exe"]]
 }
 ```
+
 
 Flow: `python3` → `which.cmd` → `which.ps1` splits `$args[0]` on `;` → `Get-Command` per candidate → exec first match with remaining args.
