@@ -192,6 +192,20 @@ COM `WScript.Shell.CreateShortcut` uses ANSI — non-system-default characters p
 
 **Prevention**: 写/改 checkver regex 时以 API 模式为准；本地验证可用带 token 的请求对照 `tag_name`。
 
+### excavator 失败 triage（月度）
+
+excavator job 整体永远 success——checkver/autoupdate 失败不 fail build，只会刷日志。定期（建议月度）拉日志分类，不同类处置路径不同：
+
+| 日志特征 | 分类 | 处置 |
+| -------- | ---- | ---- |
+| `couldn't match '<regex>' in …` | checkver regex 失配 | 对照真实 `tag_name` 改 regex（见"checkver 两种匹配模式"） |
+| 版本尾随 `-`（如 `1.4.0-`） | 默认 regex 吞 prerelease | 补显式 regex 捕获完整后缀 |
+| `X: v (scoop version is y) autoupdate available` 后接 `URL … is not valid` | 资产 URL 漂移（B2 类） | 对照 release 实际资产名改 autoupdate.url 模板 |
+| checkver URL 本身 404/超时 | 上游死亡 | 查证后移 `deprecated/`；仅搬家则换源 |
+| `X: v (scoop version is y)` 无 `autoupdate available` | 无 autoupdate 或版本语义错 | 补配置或修 regex 使版本可比 |
+
+修复验证顺序：regex 以 API 模式（裸 tag_name）为准 → 会触发新版本的用 HEAD 验证拼出的 URL → 最终回归看下一轮 excavator 日志。
+
 ## Pattern: which-shim
 
 Generic PATH-based command fallback. Candidates as semicolon-separated first argument.
