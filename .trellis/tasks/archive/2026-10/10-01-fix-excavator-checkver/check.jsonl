@@ -1,0 +1,2 @@
+{"file": ".trellis/spec/bucket/manifest-conventions.md", "reason": "校验 manifest 修改是否符合仓库规范（UTF-8、formatjson、commit 约定）"}
+{"file": ".trellis/tasks/10-01-fix-excavator-checkver/research/dead-upstream.md", "reason": "验证标准依据：API/HTML 模式语义，确认修复在 excavator token 环境下有效"}

@@ -1,0 +1,4 @@
+{"file": ".trellis/spec/bucket/manifest-conventions.md", "reason": "Manifest 修改规范：变量、模式、formatjson、commit 约定"}
+{"file": ".trellis/tasks/10-01-fix-excavator-checkver/research/a2-regex-fixes.md", "reason": "20+3 个 app 的已验证 checkver regex 修法"}
+{"file": ".trellis/tasks/10-01-fix-excavator-checkver/research/b1-dash-fixes.md", "reason": "11 个 B1 app 的已验证 checkver regex 修法与 wsl-centos-8 autoupdate 注意点"}
+{"file": ".trellis/tasks/10-01-fix-excavator-checkver/research/dead-upstream.md", "reason": "chrome-plus/WinDeckHelper/softalk/git-ssh-sign/octopus-257 事实与修法，含 scoop checkver API/HTML 模式语义"}
