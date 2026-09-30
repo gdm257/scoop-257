@@ -116,3 +116,27 @@ New scripts/winstctl (task + yq + schtasks XML): apply/destroy/run/import etc., 
 ### Status
 
 [OK] **Completed**
+
+## Session 5: Fix excavator checkver failures
+
+**Date**: 2026-10-01
+**Task**: 10-01-fix-excavator-checkver
+**Branch**: `master`
+
+### Summary
+
+分析 excavator 日志定位 65 个失败，grilling 确认范围后修复：34 个 checkver regex（根因：GITHUB_TOKEN 下 API 模式只匹配裸 tag_name，HTML 锚全失配；默认 regex 吞 prerelease 破折号）、chrome-plus/WinDeckHelper 移 deprecated、softalk 换源并 bump 020108、git-ssh-sign 去 checkver。checkver API/HTML 模式语义沉淀入 bucket spec 与 CONTEXT.md。B2（29 个资产 URL 404）留下轮。
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `5275a8a` | fix(checkver): repair 34 manifests for excavator API-mode tag matching |
+| `b32794a` | chore: deprecate chrome-plus and WinDeckHelper (dead upstream) |
+| `ceac242` | fix(softalk): move to softalk.stars.ne.jp and update to 020108 |
+| `ed27cd3` | fix(git-ssh-sign): remove stale checkver and autoupdate |
+| `2e684c7` | docs(spec): document checkver API/HTML mode semantics and gotchas |
+
+### Status
+
+[OK] **Completed**
