@@ -1,0 +1,4 @@
+{"file": ".trellis/spec/bucket/manifest-conventions.md", "reason": "checkver 语义/JSON/LF/UTF-8 规范与 gotchas，核对修复项是否违反"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/asset-map-a.md", "reason": "核对第 1–13 项新模板与连带改动是否与研究结论一致"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/asset-map-b.md", "reason": "核对第 14–26 项及 KataGo 锚定 checkver 正确性"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/asset-map-c.md", "reason": "核对第 26–37 项新模板与连带改动"}

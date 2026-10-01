@@ -1,0 +1,5 @@
+{"file": ".trellis/spec/bucket/manifest-conventions.md", "reason": "checkver API/HTML 模式语义、锚定 checkver 先例（veyon）、deprecate 流程、默认 regex 破折号/后缀截断缺陷"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/input-failures.md", "reason": "37 项失败清单与上游 repo 对应表"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/asset-map-a.md", "reason": "第 1–13 项逐项新模板/连带改动/验证结果"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/asset-map-b.md", "reason": "第 14–26 项明细 + KataGo 部分发布机制与资产锚定方案"}
+{"file": ".trellis/tasks/10-01-fix-excavator-asset-404/research/asset-map-c.md", "reason": "第 26–37 项明细 + kotlin-lsp 新 CDN 模板"}
