@@ -15,7 +15,10 @@
             "DISMTools"
         ]
     ],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/CodingWonders/DISMTools",
+        "regex": "v?([\\d.]+(?:_upd\\d+)?)"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

@@ -24,8 +24,8 @@
     ],
     "extract_to": "",
     "checkver": {
-        "url": "https://github.com/kevin2li/pdf-guru/tags.atom",
-        "regex": "releases/tag/v([\\d.]+)"
+        "url": "https://api.github.com/repos/kevin2li/PDF-Guru/releases?per_page=100",
+        "regex": "releases/download/v([\\d.]+)/pdf-guru-windows-amd64-\\1\\.zip"
     },
     "autoupdate": {
         "url": "https://github.com/kevin2li/PDF-Guru/releases/download/v$version/pdf-guru-windows-amd64-$version.zip"
