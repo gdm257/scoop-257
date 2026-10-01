@@ -239,6 +239,13 @@ excavator job 整体永远 success——checkver/autoupdate 失败不 fail build
 
 修复验证顺序：regex 以 API 模式（裸 tag_name）为准 → 会触发新版本的用 HEAD 验证拼出的 URL → 最终回归看下一轮 excavator 日志。
 
+### 批量修复的分派核对
+
+批量 triage 修复（数十个 manifest）时两处曾出错，务必核对：
+
+- **分派清单必须由 input 失败清单生成**（逐行映射），不得从 prd 方案表手抄——方案表手写曾漏 1 项（snowshot），沿 prd→分派 链静默传播；check 阶段必须对账「input 行数 == prd 方案数 == 实际改动数」
+- **research 结论含 checkver regex 时必须按 API 模式语义验证**（裸 `tag_name`，见"checkver 两种匹配模式"）并注明验证模式——HTML 模式验证通过的正则在 excavator 下可能永远失配（先例：inkeys，靠实现代理读 scoop 源码拦截）
+
 ## Pattern: which-shim
 
 Generic PATH-based command fallback. Candidates as semicolon-separated first argument.
