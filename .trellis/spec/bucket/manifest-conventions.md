@@ -153,14 +153,41 @@ Displayed after install. Use for setup instructions, caveats.
 - regex **不得**带 `releases/tag/`、`<title>` 等 HTML 锚——API 模式下永远失配，日志表现为 `couldn't match 'releases/tag/…'`
 - 版本只在 release **name**（tag 是 `26`/`untagged-<hash>`）的项目，用显式 `checkver.url` 指向 releases/latest 页面 + 匹配标题的 regex
 - 想锁定稳定版/主版本（跳过 prerelease）：用 `https://github.com/<repo>/releases.atom` + `</title>` 锚定 regex（注意 atom 只含最新 ~10 条）
+- 需要 tag 前缀/上下文锚定义版本、又想兼容本地无 token 的 HTML 模式验证时，用双模式锚：`(?:/releases/tag/|^)(…)`（先例：ffmpegfreeui、inkeys）
 
-### 默认 regex 的破折号缺陷
+### 默认 regex 的截断缺陷
 
-`"checkver": "github"` 不带 `regex` 时，默认 `(?:v|V)?([\d.-]+)` 遇 prerelease tag（如 `v1.4.0-rc.1`）产出畸形版本 `1.4.0-`。凡上游存在 prerelease tag 的 manifest 必须显式写 regex 并捕获完整后缀。
+`"checkver": "github"` 不带 `regex` 时，默认 `(?:v|V)?([\d.-]+)` 有两类截断缺陷，凡 tag 带下列形态的 manifest 必须显式写 regex 捕获完整版本：
+
+| tag 形态 | 默认产出 | 应捕获 | 先例 |
+| -------- | -------- | ------ | ---- |
+| prerelease `v1.4.0-rc.1` | 畸形 `1.4.0-` | `1.4.0-rc.1` | — |
+| 字母后缀 `v0.7.7beta` / `20260713a` | 截断 `0.7.7` / `20260713` | 完整含后缀 | OnscripterYuri、inkeys |
+| 下划线后缀 `v0.8.1_upd1` | 截断 `0.8.1` | `0.8.1_upd1` | dismtools |
+| monorepo tag 后缀 `v1.1.9_snow-shot` | 截断 `1.1.9`（拼 tag 404） | `1.1.9`，tag 段后缀以字面量进模板 | snowshot |
 
 ### autoupdate 与 checkver 捕获组的耦合
 
 checkver regex 的命名组（`(?<base>…)`）与 autoupdate 的 `$matchBase` 模板是上下游契约；用 `replace` 时同理。改 checkver regex 前先查 autoupdate 引用了哪些组，不得破坏。
+
+### Pattern: 资产锚定 checkver（部分发布 / 幽灵版本）
+
+**Problem**: 上游部分发布（如 KataGo 补丁版只重编部分后端）或 tag 与资产不同步时，`releases/latest` 的 tag 版本可能没有目标资产 → autoupdate 拼出 404。atom feed 还会被 draft release 污染（版本只在 feed、API/资产不存在，见 pdf-guru）。
+
+**Solution**: checkver 直接锚定资产 URL 本身——`checkver.url` 指向 releases API 列表，regex 用反向引用匹配完整资产名，捕获版本：
+
+```json
+"checkver": {
+    "url": "https://api.github.com/repos/lightvector/KataGo/releases?per_page=100",
+    "regex": "releases/download/v([\\d.]+)/katago-v\\1-opencl-windows-x64\\.zip"
+}
+```
+
+- 语义：按 release 顺序找**第一条**含匹配资产的记录 → 拿到该资产真实存在的最新版本，自动跳过无此资产的更新版
+- 反向引用 `\\1` 保证 tag 版本与资产内嵌版本一致；正则错一个字符即失配（响亮失败，优于静默 404）
+- 先例：veyon、katago 家族×5、pdf-guru
+- 代价：每个锚定 manifest 为 excavator run 增加 1 次匿名 API 调用
+- 注意：手动 bump pinned 状态时 hash 必须填真值（GitHub API 资产的 digest 字段即 sha256）——version == checkver 结果时 autoupdate 不会触发，占位 hash 会永久滞留（先例：katago-tensorrt 1.18.1 六条真哈希）
 
 ## Portable Manifests
 
@@ -190,7 +217,13 @@ COM `WScript.Shell.CreateShortcut` uses ANSI — non-system-default characters p
 
 **Cause**: 本地走 HTML 模式，excavator 带 token 走 API 模式，regex 只匹配裸 `tag_name`（见上文"checkver 两种匹配模式"）。
 
-**Prevention**: 写/改 checkver regex 时以 API 模式为准；本地验证可用带 token 的请求对照 `tag_name`。
+### atom feed 被 draft release 污染
+
+**Symptom**: checkver 拿到的版本在 releases API 与资产清单中均不存在（幽灵版本），autoupdate 404。
+
+**Cause**: `releases.atom` 包含 draft releases——draft 只出现在 feed，API `/releases` 与下载均不可见。
+
+**Fix/Prevention**: 换资产锚定 checkver（见上文 Pattern），直接以真实资产存在性定版本（先例：pdf-guru 自愈回 1.0.12）。
 
 ### excavator 失败 triage（月度）
 
