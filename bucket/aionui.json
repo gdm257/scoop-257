@@ -25,16 +25,5 @@
             "AionUi.exe",
             "aionui"
         ]
-    ],
-    "checkver": "github",
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/iOfficeAI/AionUi/releases/download/v$version/AionUi-$version-win-x64.exe#/dl.7z"
-            },
-            "arm64": {
-                "url": "https://github.com/iOfficeAI/AionUi/releases/download/v$version/AionUi-$version-win-arm64.exe#/dl.7z"
-            }
-        }
-    }
+    ]
 }
