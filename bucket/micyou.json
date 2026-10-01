@@ -10,7 +10,7 @@
             "hash": "77ca39bde88e66fdbfc4ae205553824bb371509b221a08ca4e444def9b5bf202"
         }
     },
-    "extract_dir": "MicYou",
+    "innosetup": true,
     "shortcuts": [
         [
             "MicYou.exe",
@@ -21,7 +21,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/LanRhyme/MicYou/releases/download/v$version/MicYou-Win-$version.zip"
+                "url": "https://github.com/LanRhyme/MicYou/releases/download/v$version/MicYou-Win-$version-installer.exe"
             }
         }
     }

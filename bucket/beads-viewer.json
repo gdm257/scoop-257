@@ -15,7 +15,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/Dicklesworthstone/beads_viewer/releases/download/v$version/bv_windows_amd64.zip"
+                "url": "https://github.com/Dicklesworthstone/beads_viewer/releases/download/v$version/bv_$version_windows_amd64.zip"
             }
         }
     }

@@ -7,10 +7,6 @@
         "64bit": {
             "url": "https://github.com/ayangweb/BongoCat/releases/download/v1.1.0/BongoCat_1.1.0_x64-setup.exe#app.7z",
             "hash": "c83f2963cb38056273aa98731704c8da650a4bb5bebe4262b4887ba2db76a935"
-        },
-        "32bit": {
-            "url": "https://github.com/ayangweb/BongoCat/releases/download/v1.1.0/BongoCat_1.1.0_x86-setup.exe#app.7z",
-            "hash": "cf892a92cf8be8efc5bf4d3bf9057b3091e608bf0118c0c410411eb04f0728dc"
         }
     },
     "extract_to": "",
@@ -28,10 +24,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/ayangweb/BongoCat/releases/download/v$version/BongoCat_$version_x64-setup.exe#app.7z"
-            },
-            "32bit": {
-                "url": "https://github.com/ayangweb/BongoCat/releases/download/v$version/BongoCat_$version_x86-setup.exe#app.7z"
+                "url": "https://github.com/ayangweb/BongoCat/releases/download/v$version/BongoCat_$version_x64.exe#app.7z"
             }
         }
     }

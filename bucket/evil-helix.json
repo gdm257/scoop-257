@@ -9,6 +9,7 @@
             "hash": "sha512:e18c45f648931e07fe4403df30dac0fbf445774ff705aa2904a004e87dbfd1f1b356fe3a56b2c18d80475fe80b8242c29bba2b89c8df297bb8705d550af4c761"
         }
     },
+    "extract_dir": "helix",
     "bin": "hx.exe",
     "checkver": {
         "github": "https://github.com/usagi-flow/evil-helix",
@@ -17,7 +18,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/usagi-flow/evil-helix/releases/download/release-$version/helix-amd64-windows.zip"
+                "url": "https://github.com/usagi-flow/evil-helix/releases/download/release-$version/evil-helix-amd64-windows.zip"
             }
         }
     }

@@ -19,7 +19,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/TagStudioDev/TagStudio/releases/download/v$version/tagstudio_windows_x86_64_portable.zip"
+                "url": "https://github.com/TagStudioDev/TagStudio/releases/download/v$version/tagstudio_v$version_windows_x86_64_portable.zip"
             }
         }
     }

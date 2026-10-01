@@ -18,8 +18,8 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/fleetdm/fleet/releases/download/fleet-v$version/fleetctl_v$version_windows.zip",
-                "extract_dir": "fleetctl_v$version_windows"
+                "url": "https://github.com/fleetdm/fleet/releases/download/fleet-v$version/fleetctl_v$version_windows_amd64.zip",
+                "extract_dir": "fleetctl_v$version_windows_amd64"
             }
         }
     }
