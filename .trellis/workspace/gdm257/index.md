@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 4
-- **Last Active**: 2026-09-12
+- **Total Sessions**: 5
+- **Last Active**: 2026-10-02
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~118 | Active |
+| `journal-1.md` | ~178 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 5 | 2026-10-02 | Fix excavator asset-404 autoupdate failures (35 manifests) | `6961a35`, `30869fe`, `7d83369`, `d98dfac` | `master` |
 | 4 | 2026-09-12 | winstctl: IaC manage Windows scheduled tasks | `8cc662a`, `3a3bc0e` | `master` |
 | 3 | 2026-09-12 | command-wrapper: allow leading --workdir | `adfb7d5` | `master` |
 | 2 | 2026-08-29 | 优化 bucket checkver 自动更新 | `b626f9f` | `master` |

@@ -140,3 +140,39 @@ New scripts/winstctl (task + yq + schtasks XML): apply/destroy/run/import etc., 
 ### Status
 
 [OK] **Completed**
+
+
+## Session 5: Fix excavator asset-404 autoupdate failures (35 manifests)
+
+**Date**: 2026-10-02
+**Task**: Fix excavator asset-404 autoupdate failures (35 manifests)
+**Branch**: `master`
+
+### Summary
+
+Round 2 of excavator triage: 37 manifests where checkver succeeded but autoupdate asset URLs 404ed. 35 fixed: 23 template repairs with collateral edits (extract_dir/innosetup/shortcuts/arch-block removal, kotlin-lsp new JetBrains CDN, snowshot _snow-shot tag suffix), 3 pure checkver suffix-capture regexes, KataGo family switched to asset-anchored API checkver (partial-release upstream, veyon precedent) + pdf-guru atom-draft self-heal, project-86/sudocode deprecated, aionui frozen. lazyjj/whoami left untouched per user decision. Spec gained asset-anchor pattern, suffix-truncation table, atom-draft gotcha. Verified via 50+ live HEAD checks (all 200) and byte-level hash comparison for pinned KataGo trt assets.
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `6961a35` | (see git log) |
+| `30869fe` | (see git log) |
+| `7d83369` | (see git log) |
+| `d98dfac` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
