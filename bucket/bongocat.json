@@ -1,12 +1,12 @@
 {
-    "version": "2.0.1",
+    "version": "2.1.1",
     "description": "BongoCat 是一个可爱的互动桌面宠物应用，让你的桌面充满乐趣！",
     "homepage": "https://github.com/ayangweb/BongoCat",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/ayangweb/BongoCat/releases/download/v2.0.1/BongoCat_2.0.1_x64.exe#app.7z",
-            "hash": "a463ce69e82908a2320185c05b70b3f4c20ed8537e8a754ff0aa5b45a80f35dc"
+            "url": "https://github.com/ayangweb/BongoCat/releases/download/v2.1.1/BongoCat_2.1.1_x64.exe#app.7z",
+            "hash": "73aa1cd67da0ae8c5f3f2f6a50e463110298a551a8b32504541a5f4e232f47b1"
         }
     },
     "extract_to": "",
