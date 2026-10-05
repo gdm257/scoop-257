@@ -1,0 +1,24 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "0.46.2",
+    "description": "Easy way to vendor portions of git repos, github releases, helm charts, docker image contents, etc. declaratively",
+    "homepage": "https://github.com/carvel-dev/vendir",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/carvel-dev/vendir/releases/download/v0.46.2/vendir-windows-amd64.exe#/vendir.exe",
+            "hash": "sha256:19782987d7e66dd4a334dc740d6e96fce2f87667da5f155bcf898151ae349570"
+        }
+    },
+    "bin": "vendir.exe",
+    "checkver": {
+        "github": "https://github.com/carvel-dev/vendir"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/carvel-dev/vendir/releases/download/v$version/vendir-windows-amd64.exe#/vendir.exe"
+            }
+        }
+    }
+}
