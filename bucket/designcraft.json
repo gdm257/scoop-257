@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "Open-source Adobe InDesign-style page layout and publishing app in pure Rust",
     "homepage": "https://github.com/storytold/designcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/designcraft/releases/download/v0.4.0/designcraft-0.4.0-windows-x64-portable.zip",
-            "hash": "dfc76a2a5428f02207a05e985319e36eba8f0e3c9a1eec5f80050c15047097b3",
-            "extract_dir": "designcraft-0.4.0-windows-x64-portable"
+            "url": "https://github.com/storytold/designcraft/releases/download/v0.5.0/designcraft-0.5.0-windows-x64-portable.zip",
+            "hash": "5656f62f634a8a259f81906597416cbbeded9c42b0e295d86cac17835eeb6f85",
+            "extract_dir": "designcraft-0.5.0-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/designcraft/releases/download/v0.4.0/designcraft-0.4.0-windows-arm64-portable.zip",
-            "hash": "3746068c0c56625b98988e0c3e9a77ba3b0c2a5944934b93b2d75a1106671986",
-            "extract_dir": "designcraft-0.4.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/designcraft/releases/download/v0.5.0/designcraft-0.5.0-windows-arm64-portable.zip",
+            "hash": "921678dee5a95d2e0e49a7bd9e27553dbb7f8d4b79f260e663196fa9aecbb800",
+            "extract_dir": "designcraft-0.5.0-windows-arm64-portable"
         }
     },
     "bin": [
