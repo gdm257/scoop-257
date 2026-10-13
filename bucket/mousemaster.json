@@ -1,26 +1,26 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "94",
+    "version": "95",
     "description": "Mouseless mouse control and advanced keyboard customization",
     "homepage": "https://github.com/petoncle/mousemaster",
     "license": "Unknown",
     "architecture": {
         "64bit": {
             "url": [
-                "https://github.com/petoncle/mousemaster/releases/download/94/mousemaster.exe",
-                "https://github.com/petoncle/mousemaster/releases/download/94/author.properties",
-                "https://github.com/petoncle/mousemaster/releases/download/94/mouseable.properties",
-                "https://github.com/petoncle/mousemaster/releases/download/94/neo-mousekeys-ijkl.properties",
-                "https://github.com/petoncle/mousemaster/releases/download/94/neo-mousekeys-wasd.properties",
-                "https://github.com/petoncle/mousemaster/releases/download/94/warpd.properties"
+                "https://github.com/petoncle/mousemaster/releases/download/95/mousemaster.exe",
+                "https://github.com/petoncle/mousemaster/releases/download/95/author.properties",
+                "https://github.com/petoncle/mousemaster/releases/download/95/mouseable.properties",
+                "https://github.com/petoncle/mousemaster/releases/download/95/neo-mousekeys-ijkl.properties",
+                "https://github.com/petoncle/mousemaster/releases/download/95/neo-mousekeys-wasd.properties",
+                "https://github.com/petoncle/mousemaster/releases/download/95/warpd.properties"
             ],
             "hash": [
-                "a19a551652655d32a7866da76e3b4e6616470171f395dfedb5d2dab74e6f27a9",
-                "04cba8be5692bef0e3e3a010cb033175345af73df778e30518ba6fcf97652953",
-                "bb5d4eac3569a490929c599fd61ac6aee96a4521d934fbe5020fe2c28599732a",
-                "3cd0d31f0b8b0fe5b77c64d89ef99e89828067f78a1575c546d5df38cc01186f",
-                "6f863f203f3b01af6e8dc1469d4ba3d6630f5e57433a2275725dc513b929b013",
-                "3dee139382c29e28cedf2e1f885bc66f426cd8315c26d6fd12d8b2f5178cd32a"
+                "5e2291a22040de0d69f2d8b01e92ee7f99566c365b1027e4e57860e9af0de58f",
+                "b4a461e61f6e05f142671bebe18cf5a527689639c9a0036fe6bad241b2a3e5a9",
+                "07b8355d942856283f79203958180fed537aa3413237003cfd80ba8eebca5284",
+                "fa53c1485453224cf8c5511e35db645f548e3b098f2b8e2d77dd0274f1d82413",
+                "6d1dbf4d22cb387425bc84f786e1f1b9b11281023ce905bcb4e85374a01c5d8e",
+                "6b31077068f25f94f133ec8314de8ab3b2e5f841c7cfb422fe905a6b64ea8e3b"
             ]
         }
     },
