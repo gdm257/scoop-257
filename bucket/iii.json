@@ -1,38 +1,38 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.24.4",
+    "version": "0.24.5",
     "description": "Effortlessly compose, extend, and observe every service in real-time for the first time ever",
     "homepage": "https://github.com/iii-hq/iii",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
             "url": [
-                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.4/iii-x86_64-pc-windows-msvc.zip",
-                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.4/iii-console-x86_64-pc-windows-msvc.zip"
+                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.5/iii-x86_64-pc-windows-msvc.zip",
+                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.5/iii-console-x86_64-pc-windows-msvc.zip"
             ],
             "hash": [
-                "82b11120fc9ea2be0fb50d4b42105b6f5d550e8f6d25f4d1980b06d244f809e0",
-                "698b6cb8cc3acb44bbc1adc84c4a546fa164672fb12cbf93b67892ad221464cc"
+                "d0c30501460b4256a35b384739d776e74864212410325abeb6bf0deb9a0f1cf5",
+                "38ee799bd4f43e8682517acf6a6f596f8720a911f5ca203edf59502f6f3f6c01"
             ]
         },
         "32bit": {
             "url": [
-                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.4/iii-i686-pc-windows-msvc.zip",
-                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.4/iii-console-i686-pc-windows-msvc.zip"
+                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.5/iii-i686-pc-windows-msvc.zip",
+                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.5/iii-console-i686-pc-windows-msvc.zip"
             ],
             "hash": [
-                "f91312898dbd58fa0711a3dd62ec69c19003129eff4fe2dffcfa6689527d130b",
-                "c0f2e897af99daad2f4459fcf01a95205495e87024dcad0efbd116f7a4c0c79c"
+                "f6e0e4431c9f58d3024ff8606e077cd926b362b1f27c8eabb14a6657cffb5216",
+                "a70c2ee6c416d28f23ae79a389e24f2a06c88a3bf5fe31000712ca0b4f920ae7"
             ]
         },
         "arm64": {
             "url": [
-                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.4/iii-aarch64-pc-windows-msvc.zip",
-                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.4/iii-console-aarch64-pc-windows-msvc.zip"
+                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.5/iii-aarch64-pc-windows-msvc.zip",
+                "https://github.com/iii-hq/iii/releases/download/iii%2Fv0.24.5/iii-console-aarch64-pc-windows-msvc.zip"
             ],
             "hash": [
-                "d01b239f8c4280e105cd210d67f376256732a6d21aedf599c1d17d0f2361703b",
-                "89938912acc9f4e9ccdf184d634f1b499700aba079bd4f1e407c779a88850ef2"
+                "8e6f904b6835ade31dbe851f86ef7476bb482a1609f477e27a307862b0f8f40e",
+                "e26228046f64d65dcbfdfd6d4b71032a82e6bc29ddfa31de8eadbffc71a822d9"
             ]
         }
     },
