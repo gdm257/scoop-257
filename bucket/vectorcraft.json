@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.12.0",
+    "version": "0.13.1",
     "description": "Open-source Adobe Illustrator-style vector graphics app in pure Rust",
     "homepage": "https://github.com/storytold/vectorcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/vectorcraft/releases/download/v0.12.0/vectorcraft-0.12.0-windows-x64-portable.zip",
-            "hash": "fde42c30d14aadbb565cf0551f72f251321f8c9f875a24811b98e522aea6fe88",
-            "extract_dir": "vectorcraft-0.12.0-windows-x64-portable"
+            "url": "https://github.com/storytold/vectorcraft/releases/download/v0.13.1/vectorcraft-0.13.1-windows-x64-portable.zip",
+            "hash": "6c46505e20dfd637b37ff8e1ead9aa69758acdc877ae46cc8b3338463e078b51",
+            "extract_dir": "vectorcraft-0.13.1-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/vectorcraft/releases/download/v0.12.0/vectorcraft-0.12.0-windows-arm64-portable.zip",
-            "hash": "dbf0c6f39db99f1676169b8af9ad543ebc0561e3d68686b9d040dd907f98357d",
-            "extract_dir": "vectorcraft-0.12.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/vectorcraft/releases/download/v0.13.1/vectorcraft-0.13.1-windows-arm64-portable.zip",
+            "hash": "cdc5c27d1105afa66ec955f8a9e846a9bd3a33b1f195f6e5bc9b85f4949fc36c",
+            "extract_dir": "vectorcraft-0.13.1-windows-arm64-portable"
         }
     },
     "bin": [
