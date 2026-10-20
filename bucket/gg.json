@@ -1,12 +1,12 @@
 {
-    "version": "0.45.0",
+    "version": "0.46.0",
     "description": "GG - Gui for JJ",
     "homepage": "https://github.com/gulbanana/gg",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/gulbanana/gg/releases/download/v0.45.0/gg_0.45.0_x64-setup.exe#/dl.7z",
-            "hash": "115e47d8a0e887e155fcb42a13482e69c351c464c61a8938b90bdd8649453c70"
+            "url": "https://github.com/gulbanana/gg/releases/download/v0.46.0/gg_0.46.0_x64-setup.exe#/dl.7z",
+            "hash": "0ffba423edea71bfed81d4cf87203398b2d378eb523415ad1f784bab0e39defa"
         }
     },
     "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse",
