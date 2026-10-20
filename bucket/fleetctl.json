@@ -1,13 +1,13 @@
 {
-    "version": "4.93.0",
+    "version": "4.93.1",
     "description": "Open-source platform for IT and security teams with thousands of computers. (Linux, macOS, Windows, Chromebooks, AWS, Google Cloud, Azure, data center, containers, IoT)",
     "homepage": "https://github.com/fleetdm/fleet",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/fleetdm/fleet/releases/download/fleet-v4.93.0/fleetctl_v4.93.0_windows_amd64.zip",
-            "hash": "69c71f1dd0f6f9739689a4953ebf3186c41eed777dc698d586d9edfef4c0b2ec",
-            "extract_dir": "fleetctl_v4.93.0_windows_amd64",
+            "url": "https://github.com/fleetdm/fleet/releases/download/fleet-v4.93.1/fleetctl_v4.93.1_windows_amd64.zip",
+            "hash": "7006f8ddafbc88d7613a06c79ad70045ed6c24c1e20875dcc44e9a971c97d769",
+            "extract_dir": "fleetctl_v4.93.1_windows_amd64",
             "bin": "fleetctl.exe"
         }
     },
