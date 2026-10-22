@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "description": "Open-source Adobe Acrobat-style PDF app in pure Rust",
     "homepage": "https://github.com/storytold/pdfcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/pdfcraft/releases/download/v0.11.0/pdfcraft-0.11.0-windows-x64-portable.zip",
-            "hash": "1655b326dc3d34e7fe1a5c211d06a603b12661765291ea995da2b7d9bcf2ff3c",
-            "extract_dir": "pdfcraft-0.11.0-windows-x64-portable"
+            "url": "https://github.com/storytold/pdfcraft/releases/download/v0.12.0/pdfcraft-0.12.0-windows-x64-portable.zip",
+            "hash": "18e321bb1f3f217c863c8ab97f88be18ff54ae8cae6231364569e413a8ecdf22",
+            "extract_dir": "pdfcraft-0.12.0-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/pdfcraft/releases/download/v0.11.0/pdfcraft-0.11.0-windows-arm64-portable.zip",
-            "hash": "50b490d250fb88e69330db42dca90ecb4e0cb0c6b79f105aeffc5709149c93c0",
-            "extract_dir": "pdfcraft-0.11.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/pdfcraft/releases/download/v0.12.0/pdfcraft-0.12.0-windows-arm64-portable.zip",
+            "hash": "6e5545a9afaed2a308e53a7ec4910fb46100b098aebca5922b2691425a89ae69",
+            "extract_dir": "pdfcraft-0.12.0-windows-arm64-portable"
         }
     },
     "bin": [
