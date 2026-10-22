@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.10.0",
+    "version": "0.11.0",
     "description": "Open-source Adobe Premiere Pro-style video editor in pure Rust",
     "homepage": "https://github.com/storytold/filmcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-windows-x64-portable.zip",
-            "hash": "8f5b52e0f8fd5540b5e0a4c5ae283f11371df1d983fd109f248a3d6c1ed5a263",
-            "extract_dir": "filmcraft-0.10.0-windows-x64-portable"
+            "url": "https://github.com/storytold/filmcraft/releases/download/v0.11.0/filmcraft-0.11.0-windows-x64-portable.zip",
+            "hash": "d71a8a8395eb5329c299164783e043cd4492b688e2ac55ec57b94ddd9c77f89d",
+            "extract_dir": "filmcraft-0.11.0-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-windows-arm64-portable.zip",
-            "hash": "719c6aba7f4ba7ba36c9dfc9037a3bda12a6db875f4a508ae8d820df2e1acd01",
-            "extract_dir": "filmcraft-0.10.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/filmcraft/releases/download/v0.11.0/filmcraft-0.11.0-windows-arm64-portable.zip",
+            "hash": "ca255ea5eaa4c8e5624779ccf7606dd3f0dd8b0d28298183e7dacebf609fc0d1",
+            "extract_dir": "filmcraft-0.11.0-windows-arm64-portable"
         }
     },
     "bin": [
