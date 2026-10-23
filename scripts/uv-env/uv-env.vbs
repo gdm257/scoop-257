@@ -1,0 +1,113 @@
+Option Explicit
+
+' uv-env.vbs -- per-app uv environment for GUI use (no console window), plus
+'   the candidate resolution / hidden-run / exit-code logic of
+'   command-wrapper.vbs. Paths derive from this script's own location, so the
+'   app dir stays fully portable (no absolute paths, nothing global).
+' Why a .vbs: a .lnk whose TargetPath is a .cmd/.bat flashes a console on launch
+'   (cmd.exe always allocates one). Launched via wscript.exe, a .vbs has NO
+'   console, so the GUI shortcut starts silently.
+'   arg(0) = '+'- or comma-separated candidate executables, tried in order
+'   arg(1+)= forwarded to the resolved command
+'   An optional "--workdir <path>" may lead arg(0) or appear anywhere in
+'   arg(1+); the pair is intercepted (not forwarded) and sets the wrapped
+'   command's working dir; relative paths resolve against THIS script's dir.
+
+Dim sh, fso, args, candidates, candlist, cand, rest, workdir, i, resolved, env
+Set sh   = CreateObject("WScript.Shell")
+Set fso  = CreateObject("Scripting.FileSystemObject")
+Set args = WScript.Arguments
+
+' Per-app uv environment, injected into this process so the wrapped command
+' (and only it) sees it -- nothing leaks to the user's global environment.
+Set env = sh.Environment("Process")
+env("UV_PYTHON_INSTALL_DIR") = fso.GetParentFolderName(WScript.ScriptFullName) & "\py"
+env("UV_PYTHON_BIN_DIR") = fso.GetParentFolderName(WScript.ScriptFullName) & "\py\bin"
+env("UV_CACHE_DIR") = fso.GetParentFolderName(WScript.ScriptFullName) & "\uv-cache"
+env("UV_PYTHON_PREFERENCE") = "only-managed"
+
+If args.Count = 0 Then Fail "no candidates provided"
+
+workdir = ""
+i = 0
+' Leading "--workdir <path>" before the candidate list; a later pair in the loop below
+' overrides it (last one wins).
+If LCase(args(0)) = "--workdir" Then
+    If args.Count < 2 Then Fail "--workdir requires a value"
+    workdir = args(1)
+    i = 2
+    If i >= args.Count Then Fail "no candidates provided"
+End If
+
+' '+'-separated candidates, tried in order; comma also accepted (normalize then split).
+candlist = args(i)
+i = i + 1
+candidates = Split(Replace(candlist, "+", ","), ",")
+rest = ""
+Do While i < args.Count
+    If LCase(args(i)) = "--workdir" Then
+        If i + 1 >= args.Count Then Fail "--workdir requires a value"
+        workdir = args(i + 1)
+        i = i + 2
+    Else
+        If rest = "" Then rest = args(i) Else rest = rest & " " & args(i)
+        i = i + 1
+    End If
+Loop
+
+If workdir <> "" Then
+    ' Absolute = "X:\..." or leading "\"/UNC; else resolve against this script's dir.
+    If InStr(workdir, ":") <> 2 And Left(workdir, 1) <> "\" Then
+        workdir = fso.GetParentFolderName(WScript.ScriptFullName) & "\" & workdir
+    End If
+    If Not fso.FolderExists(workdir) Then Fail "workdir not found: " & workdir
+    sh.CurrentDirectory = workdir
+End If
+
+For Each cand In candidates
+    cand = Trim(cand)
+    If cand <> "" Then
+        resolved = ResolveCommand(cand)
+        If resolved <> "" Then
+            ' Window style 0 = hidden: the wrapped process starts with no console either.
+            ' bWaitOnReturn=True so the .lnk inherits the wrapped command's exit code.
+            WScript.Quit sh.Run(Chr(34) & resolved & Chr(34) & " " & rest, 0, True)
+        End If
+    End If
+Next
+
+Fail "none of (" & candlist & ") found in PATH"
+
+' ---------------- helpers ----------------
+
+Function ResolveCommand(name)
+    Dim pathExt, extList, pathEnv, dirs, base, e, full
+    ' Explicit path given: use as-is if it exists.
+    If InStr(name, "\") > 0 Or InStr(name, "/") > 0 Or InStr(name, ":") > 0 Then
+        If fso.FileExists(name) Then ResolveCommand = name : Exit Function
+    End If
+    pathExt = sh.Environment("Process")("PATHEXT")
+    If pathExt = "" Then pathExt = ".COM;.EXE;.BAT;.CMD;.VBS;.JS;.WSF;.MSC"
+    extList = Split(pathExt, ";")
+    pathEnv = sh.Environment("Process")("PATH")
+    dirs = Split(pathEnv, ";")
+    For Each base In dirs
+        If base <> "" Then
+            If Right(base, 1) <> "\" Then base = base & "\"
+            ' name already carries an extension -> try exact
+            If fso.FileExists(base & name) Then ResolveCommand = base & name : Exit Function
+            ' else try each PATHEXT extension
+            For Each e In extList
+                full = base & name & e
+                If fso.FileExists(full) Then ResolveCommand = full : Exit Function
+            Next
+        End If
+    Next
+    ResolveCommand = ""
+End Function
+
+Sub Fail(msg)
+    ' WScript.Echo -> stdout under cscript, message box under wscript (error feedback either way).
+    WScript.Echo "uv-env: " & msg
+    WScript.Quit 1
+End Sub
