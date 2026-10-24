@@ -12,8 +12,14 @@
     ],
     "installer": {
         "script": [
-            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\uv-env\\uv-env.cmd') -Destination (Join-Path $dir 'uv-env.cmd')",
-            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\uv-env\\uv-env.vbs') -Destination (Join-Path $dir 'uv-env.vbs')",
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\env-wrapper\\env-wrapper.cmd') -Destination (Join-Path $dir 'env-wrapper.cmd')",
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\env-wrapper\\env-wrapper.vbs') -Destination (Join-Path $dir 'env-wrapper.vbs')",
+            "Set-Content (Join-Path $dir 'app-env.cmd') @(",
+            "    'set \"UV_PYTHON_INSTALL_DIR=%~dp0py\"',",
+            "    'set \"UV_PYTHON_BIN_DIR=%~dp0py\\bin\"',",
+            "    'set \"UV_CACHE_DIR=%~dp0uv-cache\"',",
+            "    'set \"UV_PYTHON_PREFERENCE=only-managed\"'",
+            ")",
             "$env:UV_PYTHON_INSTALL_DIR = Join-Path $dir 'py'",
             "$env:UV_PYTHON_BIN_DIR = Join-Path $dir 'py\\bin'",
             "$env:UV_CACHE_DIR = Join-Path $dir 'uv-cache'",
@@ -25,8 +31,8 @@
             "uv --directory \"$dir\" sync"
         ]
     },
-    "bin": [["uv-env.cmd", "shim-name", "uv run main.py"]],
+    "bin": [["env-wrapper.cmd", "shim-name", "uv run main.py"]],
     "shortcuts": [
-        ["uv-env.vbs", "GUI Name", "uv run main.pyw", "Icon.ico"]
+        ["env-wrapper.vbs", "GUI Name", "uv run main.pyw", "Icon.ico"]
     ]
 }

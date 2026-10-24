@@ -1,5 +1,5 @@
 @echo off
-rem Stub candidate command for test-uv-env.cmd: dumps received UV_* vars and
+rem Stub candidate command for test-env-wrapper.cmd: dumps received UV_* vars and
 rem forwarded args to %STUB_OUT%, exits 7 so the exit-code path is observable.
 > "%STUB_OUT%" (
     echo UV_PYTHON_INSTALL_DIR=%UV_PYTHON_INSTALL_DIR%

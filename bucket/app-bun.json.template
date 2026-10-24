@@ -12,13 +12,20 @@
     ],
     "installer": {
         "script": [
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\env-wrapper\\env-wrapper.cmd') -Destination (Join-Path $dir 'env-wrapper.cmd')",
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\env-wrapper\\env-wrapper.vbs') -Destination (Join-Path $dir 'env-wrapper.vbs')",
+            "Set-Content (Join-Path $dir 'app-env.cmd') @(",
+            "    'set \"BUN_INSTALL_CACHE_DIR=%~dp0bun-cache\"'",
+            ")",
+            "$env:BUN_INSTALL_CACHE_DIR = Join-Path $dir 'bun-cache'",
             "git clone --recurse-submodules https://github.com/owner/repo \"$dir\\repo\"",
             "Get-ChildItem \"$dir\\repo\\*\" -Force | Move-Item -Destination \"$dir\" ",
+            "Set-Location $dir",
             "bun install"
         ]
     },
-    "bin": [["command-wrapper.cmd", "shim-name", "bun run main.ts"]],
+    "bin": [["env-wrapper.cmd", "shim-name", "bun run main.ts"]],
     "shortcuts": [
-        ["command-wrapper.vbs", "GUI Name", "bun run main.ts", "Icon.ico"]
+        ["env-wrapper.vbs", "GUI Name", "bun run main.ts", "Icon.ico"]
     ]
 }

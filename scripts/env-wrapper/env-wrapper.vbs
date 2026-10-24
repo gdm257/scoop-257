@@ -1,9 +1,9 @@
 Option Explicit
 
-' uv-env.vbs -- per-app uv environment for GUI use (no console window), plus
-'   the candidate resolution / hidden-run / exit-code logic of
-'   command-wrapper.vbs. Paths derive from this script's own location, so the
-'   app dir stays fully portable (no absolute paths, nothing global).
+' env-wrapper.vbs -- generic per-app environment for GUI use (no console window):
+'   apply the sibling generated app-env.cmd, plus the candidate resolution /
+'   hidden-run / exit-code logic of command-wrapper.vbs. The app's env lives in a
+'   data file (set "KEY=VALUE" lines), so new app templates need no new wrapper.
 ' Why a .vbs: a .lnk whose TargetPath is a .cmd/.bat flashes a console on launch
 '   (cmd.exe always allocates one). Launched via wscript.exe, a .vbs has NO
 '   console, so the GUI shortcut starts silently.
@@ -18,13 +18,11 @@ Set sh   = CreateObject("WScript.Shell")
 Set fso  = CreateObject("Scripting.FileSystemObject")
 Set args = WScript.Arguments
 
-' Per-app uv environment, injected into this process so the wrapped command
-' (and only it) sees it -- nothing leaks to the user's global environment.
+' Per-app environment from app-env.cmd, injected into this process so the wrapped
+' command (and only it) sees it -- nothing leaks to the user's global environment.
+' Each set "KEY=VALUE" line has the literal %~dp0 replaced by this script's dir.
 Set env = sh.Environment("Process")
-env("UV_PYTHON_INSTALL_DIR") = fso.GetParentFolderName(WScript.ScriptFullName) & "\py"
-env("UV_PYTHON_BIN_DIR") = fso.GetParentFolderName(WScript.ScriptFullName) & "\py\bin"
-env("UV_CACHE_DIR") = fso.GetParentFolderName(WScript.ScriptFullName) & "\uv-cache"
-env("UV_PYTHON_PREFERENCE") = "only-managed"
+ApplyEnv
 
 If args.Count = 0 Then Fail "no candidates provided"
 
@@ -80,6 +78,34 @@ Fail "none of (" & candlist & ") found in PATH"
 
 ' ---------------- helpers ----------------
 
+Sub ApplyEnv
+    Dim envFile, ts, line, eq, key, value, applied
+    envFile = fso.GetParentFolderName(WScript.ScriptFullName) & "\app-env.cmd"
+    If Not fso.FileExists(envFile) Then Fail "app-env.cmd not found next to " & envFile
+    Set ts = fso.OpenTextFile(envFile, 1)
+    applied = 0
+    Do While Not ts.AtEndOfStream
+        line = Trim(ts.ReadLine)
+        ' Only set "KEY=VALUE" lines carry env; anything else is a parse failure.
+        If LCase(Left(line, 5)) = "set """ And Right(line, 1) = """" Then
+            line = Mid(line, 6, Len(line) - 6)
+            eq = InStr(line, "=")
+            If eq > 1 Then
+                key = Left(line, eq - 1)
+                value = Replace(Mid(line, eq + 1), "%~dp0", _
+                    fso.GetParentFolderName(WScript.ScriptFullName) & "\")
+                env(key) = value
+                applied = applied + 1
+            End If
+        ElseIf line <> "" And Left(line, 1) <> "'" And Left(line, 3) <> "rem" Then
+            ts.Close
+            Fail "unparseable line in app-env.cmd: " & line
+        End If
+    Loop
+    ts.Close
+    If applied = 0 Then Fail "no set lines found in app-env.cmd"
+End Sub
+
 Function ResolveCommand(name)
     Dim pathExt, extList, pathEnv, dirs, base, e, full
     ' Explicit path given: use as-is if it exists.
@@ -108,6 +134,6 @@ End Function
 
 Sub Fail(msg)
     ' WScript.Echo -> stdout under cscript, message box under wscript (error feedback either way).
-    WScript.Echo "uv-env: " & msg
+    WScript.Echo "env-wrapper: " & msg
     WScript.Quit 1
 End Sub

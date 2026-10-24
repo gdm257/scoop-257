@@ -12,13 +12,19 @@
     ],
     "installer": {
         "script": [
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\env-wrapper\\env-wrapper.cmd') -Destination (Join-Path $dir 'env-wrapper.cmd')",
+            "Copy-Item -Path (Join-Path $bucketsdir $bucket 'scripts\\env-wrapper\\env-wrapper.vbs') -Destination (Join-Path $dir 'env-wrapper.vbs')",
+            "Set-Content (Join-Path $dir 'app-env.cmd') @(",
+            "    'set \"pnpm_config_store_dir=%~dp0pnpm-store\"'",
+            ")",
+            "$env:pnpm_config_store_dir = Join-Path $dir 'pnpm-store'",
             "git clone --recurse-submodules https://github.com/owner/repo \"$dir\\repo\"",
             "Get-ChildItem \"$dir\\repo\\*\" -Force | Move-Item -Destination \"$dir\" ",
-            "pnpm install"
+            "pnpm --dir \"$dir\" install"
         ]
     },
-    "bin": [["command-wrapper.cmd", "shim-name", "node main.js"]],
+    "bin": [["env-wrapper.cmd", "shim-name", "node main.js"]],
     "shortcuts": [
-        ["command-wrapper.vbs", "GUI Name", "node main.js", "Icon.ico"]
+        ["env-wrapper.vbs", "GUI Name", "node main.js", "Icon.ico"]
     ]
 }
