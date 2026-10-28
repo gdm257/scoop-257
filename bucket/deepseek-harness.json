@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.2.2",
+    "version": "0.2.1-rc.4",
     "description": "DeepSeek official desktop client for the Harness agent runtime, supporting background tasks, local file access and plugin management.",
     "homepage": "https://www.deepseek.com/download",
     "license": "MIT",
@@ -25,7 +25,7 @@
     ],
     "checkver": {
         "url": "https://github.com/deepseek-ai/deepseek-harness/releases",
-        "regex": "/releases/tag/dsh-v([\\d.]+(?:-rc\\.[\\d]+)?)"
+        "regex": "(?:/releases/tag/|^)dsh-v([\\d.]+(?:-rc\\.\\d+)?)(?![\\w.-])"
     },
     "autoupdate": {
         "architecture": {
