@@ -1,0 +1,31 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "0.0.36",
+    "description": "Filen CLI for Windows, macOS and Linux",
+    "homepage": "https://filen.io",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/FilenCloudDienste/filen-cli/releases/download/v0.0.36/filen-cli-v0.0.36-win-x64.exe#/filen.exe",
+            "hash": "sha256:2a1b8d6cb15f13fd4c07204ff81b5b72fc7420e5b6c749b5cc3ba98e7f1bbc48"
+        },
+        "arm64": {
+            "url": "https://github.com/FilenCloudDienste/filen-cli/releases/download/v0.0.36/filen-cli-v0.0.36-win-arm64.exe#/filen.exe",
+            "hash": "sha256:2a1b8d6cb15f13fd4c07204ff81b5b72fc7420e5b6c749b5cc3ba98e7f1bbc48"
+        }
+    },
+    "bin": "filen.exe",
+    "checkver": {
+        "github": "https://github.com/FilenCloudDienste/filen-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/FilenCloudDienste/filen-cli/releases/download/v$version/filen-cli-v$version-win-x64.exe"
+            },
+            "arm64": {
+                "url": "https://github.com/FilenCloudDienste/filen-cli/releases/download/v$version/filen-cli-v$version-win-arm64.exe"
+            }
+        }
+    }
+}
