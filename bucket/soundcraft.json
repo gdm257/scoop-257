@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.13.1",
+    "version": "0.14.0",
     "description": "Open-source Pro Tools-style audio workstation in pure Rust",
     "homepage": "https://github.com/storytold/soundcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/soundcraft/releases/download/v0.13.1/soundcraft-0.13.1-windows-x64-portable.zip",
-            "hash": "f1e518ae2114bd20346e4cf9ec295412a66f502f7b3962acf5f32afe09451660",
-            "extract_dir": "soundcraft-0.13.1-windows-x64-portable"
+            "url": "https://github.com/storytold/soundcraft/releases/download/v0.14.0/soundcraft-0.14.0-windows-x64-portable.zip",
+            "hash": "c54601aaf20c55e2a7e30fad20f08ca56d0b8913f0182f15665413c89fe88904",
+            "extract_dir": "soundcraft-0.14.0-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/soundcraft/releases/download/v0.13.1/soundcraft-0.13.1-windows-arm64-portable.zip",
-            "hash": "bb1102ea235c561b867877fe0ad92e6ed58c067f8a455a8b39543bcbcae45494",
-            "extract_dir": "soundcraft-0.13.1-windows-arm64-portable"
+            "url": "https://github.com/storytold/soundcraft/releases/download/v0.14.0/soundcraft-0.14.0-windows-arm64-portable.zip",
+            "hash": "d13cde794d930052239f407643f143f5a11524c276e5444927b81783cae2ca7a",
+            "extract_dir": "soundcraft-0.14.0-windows-arm64-portable"
         }
     },
     "bin": [
