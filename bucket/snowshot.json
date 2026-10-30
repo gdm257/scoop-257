@@ -11,12 +11,15 @@
         }
     },
     "extract_dir": "bin",
-    "bin": "snow-shot-mcp.exe",
+    "bin": [
+        "snow_shot.exe",
+        ["snow_shot.exe", "snowshot"],
+        ["snow_shot.exe", "snow-shot"],
+        ["snow_shot.exe", "snow-shot-editor", "--edit-with-snow-shot"],
+        "snow-shot-mcp.exe"
+    ],
     "shortcuts": [
-        [
-            "snow_shot.exe",
-            "Snow Shot"
-        ]
+        ["snow_shot.exe", "Snow Shot"]
     ],
     "persist": "portable",
     "checkver": {
