@@ -38,6 +38,12 @@
             "--workdir . mousemaster.exe"
         ]
     ],
+    "shortcuts": [
+        [
+            "mousemaster-silent.vbs",
+            "MouseMaster"
+        ]
+    ],
     "persist": "mousemaster.properties",
     "checkver": "github",
     "autoupdate": {
