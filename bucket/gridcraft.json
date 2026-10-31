@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.13.0",
+    "version": "0.14.2",
     "description": "Open-source Excel-style spreadsheet app in pure Rust",
     "homepage": "https://github.com/storytold/gridcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/gridcraft/releases/download/v0.13.0/gridcraft-0.13.0-windows-x64-portable.zip",
-            "hash": "ff184e31ceb9284cbbb6c7ade71ac968d930c0dab1ca9de1147a1358a83bd8fd",
-            "extract_dir": "gridcraft-0.13.0-windows-x64-portable"
+            "url": "https://github.com/storytold/gridcraft/releases/download/v0.14.2/gridcraft-0.14.2-windows-x64-portable.zip",
+            "hash": "b000c1feddf7790e34cc16733c31c6acb3e9eec3a0a3f272ef34f6e1cb280ebb",
+            "extract_dir": "gridcraft-0.14.2-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/gridcraft/releases/download/v0.13.0/gridcraft-0.13.0-windows-arm64-portable.zip",
-            "hash": "dfad485e8eef819a649c39f0ba0223c5315a9194ed8bbed113ae02547a0341df",
-            "extract_dir": "gridcraft-0.13.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/gridcraft/releases/download/v0.14.2/gridcraft-0.14.2-windows-arm64-portable.zip",
+            "hash": "f9427e223619850d815c21dcfb1a4c268fe3592c196335beda4554b193abe257",
+            "extract_dir": "gridcraft-0.14.2-windows-arm64-portable"
         }
     },
     "bin": [
