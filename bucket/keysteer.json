@@ -1,19 +1,24 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.15.2",
+    "version": "0.15.3",
     "description": "Keyboard-driven mouse and window management for Windows and macOS — Vim-style navigation, accessibility UI hints, tiling, tabs, and workspaces",
     "homepage": "https://github.com/dccif/KeySteer",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/dccif/KeySteer/releases/download/v0.15.2/KeySteer-v0.15.2-x86_64-pc-windows-msvc.zip",
-            "hash": "sha256:8d21a13916cab5207329307c577e7cac8b9d5be7e666e50e0082d75e99ac9f64"
+            "url": "https://github.com/dccif/KeySteer/releases/download/v0.15.3/KeySteer-v0.15.3-aarch64-pc-windows-msvc.zip",
+            "hash": "46dd4ba0c3b383b3e96919e960773d419b7151fc3fca0a4633addc16d0551e12"
         }
     },
     "extract_dir": "KeySteer",
     "pre_install": "if (!(Test-Path \"$persist_dir\\keysteer.user.toml\")) { Copy-Item \"$dir\\keysteer.default.toml\" \"$dir\\keysteer.user.toml\" }",
     "bin": "KeySteer.exe",
-    "shortcuts": [["KeySteer.exe", "KeySteer"]],
+    "shortcuts": [
+        [
+            "KeySteer.exe",
+            "KeySteer"
+        ]
+    ],
     "persist": "keysteer.user.toml",
     "checkver": "github",
     "autoupdate": {
