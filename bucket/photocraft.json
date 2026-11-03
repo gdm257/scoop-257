@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.19.0",
+    "version": "0.20.1",
     "description": "Open-source Adobe Photoshop-style image editor in pure Rust",
     "homepage": "https://github.com/storytold/photocraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/photocraft/releases/download/v0.19.0/photocraft-0.19.0-windows-x64-portable.zip",
-            "hash": "b6ead3cbab9d5aee27d23cfe7903be1e820ca1e1b3f002b9970e996d9c3a38e1",
-            "extract_dir": "photocraft-0.19.0-windows-x64-portable"
+            "url": "https://github.com/storytold/photocraft/releases/download/v0.20.1/photocraft-0.20.1-windows-x64-portable.zip",
+            "hash": "e21ac903cf0477b05d8d1b6071f1f579b80f8ee9c8737a0b47b53948a17c5c73",
+            "extract_dir": "photocraft-0.20.1-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/photocraft/releases/download/v0.19.0/photocraft-0.19.0-windows-arm64-portable.zip",
-            "hash": "dd179619a4b552d7adced521bc5c69fa3ee0467aa17913f00137c40ba1995cd6",
-            "extract_dir": "photocraft-0.19.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/photocraft/releases/download/v0.20.1/photocraft-0.20.1-windows-arm64-portable.zip",
+            "hash": "2724e3042b9696fa6da09f1216a3b16ebc823d5d0712adc1f169304bb6d1a394",
+            "extract_dir": "photocraft-0.20.1-windows-arm64-portable"
         }
     },
     "bin": [
