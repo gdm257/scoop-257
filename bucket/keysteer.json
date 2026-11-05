@@ -6,8 +6,8 @@
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/dccif/KeySteer/releases/download/v0.15.5/KeySteer-v0.15.5-aarch64-pc-windows-msvc.zip",
-            "hash": "7fde8a3bd0fe50edde61f99f8f0398348de060a844b2021627dcac44f3378743"
+            "url": "https://github.com/dccif/KeySteer/releases/download/v0.15.5/KeySteer-v0.15.5-x86_64-pc-windows-msvc.zip",
+            "hash": "sha256:9767bebbc023856c8c6bb9e17b1315dedc37231c96ea492109eb96447559df5b"
         }
     },
     "extract_dir": "KeySteer",
@@ -24,7 +24,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/dccif/KeySteer/releases/download/v$version/KeySteer-v$version-aarch64-pc-windows-msvc.zip"
+                "url": "https://github.com/dccif/KeySteer/releases/download/v$version/KeySteer-v$version-x86_64-pc-windows-msvc.zip"
             }
         }
     }
