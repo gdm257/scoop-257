@@ -1,0 +1,33 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "1.2.0",
+    "description": "面向开发者与 AI Agent 的开源流量调试工作台，让业务异常可筛选、调试修改可追溯、排查现场可分享",
+    "homepage": "https://github.com/Yricky/proxycrab",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": [
+                "https://github.com/Yricky/proxycrab/releases/download/v1.2.0/proxycrab-cli-windows-x64-v1.2.0.zip",
+                "https://github.com/Yricky/proxycrab/releases/download/v1.2.0/proxy-crab-t_1.2.0_x64_en-US.msi"
+            ],
+            "hash": [
+                "sha256:3ac8360f370b367f7a7a2785d3940f3d19f69f268579ecd398289ca91f7f11b3",
+                "sha256:aa58a1b18277b795b61691155e6bdef2de38ed2f2ed20ed045faafe3770ed046"
+            ]
+        }
+    },
+    "extract_dir": ["", "PFiles"],
+    "bin": ["proxycrab-cli.exe", ["proxycrab-cli.exe", "proxycrab"]],
+    "shortcuts": [["proxy-crab-t/proxy-crab-t.exe", "ProxyCrab"]],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": [
+                    "https://github.com/Yricky/proxycrab/releases/download/v$version/proxycrab-cli-windows-x64-v$version.zip",
+                    "https://github.com/Yricky/proxycrab/releases/download/v$version/proxy-crab-t_$version_x64_en-US.msi"
+                ]
+            }
+        }
+    }
+}
