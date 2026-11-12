@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.24.0",
+    "version": "0.24.1",
     "description": "Open-source Adobe After Effects-style VFX/motion graphics app in pure Rust",
     "homepage": "https://github.com/storytold/effectcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/effectcraft/releases/download/v0.24.0/effectcraft-0.24.0-windows-x64-portable.zip",
-            "hash": "b517f5fd6376983ffa89471c12a9c0aee6a3f27cd5135990214bd92bbf85029c",
-            "extract_dir": "effectcraft-0.24.0-windows-x64-portable"
+            "url": "https://github.com/storytold/effectcraft/releases/download/v0.24.1/effectcraft-0.24.1-windows-x64-portable.zip",
+            "hash": "707bb7480783904e153fd71fd43ffaaf806fbbaa7f803090c2d32f5d920bd996",
+            "extract_dir": "effectcraft-0.24.1-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/effectcraft/releases/download/v0.24.0/effectcraft-0.24.0-windows-arm64-portable.zip",
-            "hash": "ceef6c4c09333031ca3431c6fb242bb6b23ce5d83b2251f46483a4fc82418243",
-            "extract_dir": "effectcraft-0.24.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/effectcraft/releases/download/v0.24.1/effectcraft-0.24.1-windows-arm64-portable.zip",
+            "hash": "b4eadf1d19f55cf69aa6ec6076ad754b3ff6bf6210f32811cff40a573b068041",
+            "extract_dir": "effectcraft-0.24.1-windows-arm64-portable"
         }
     },
     "bin": [
