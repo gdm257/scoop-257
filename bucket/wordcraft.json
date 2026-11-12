@@ -1,19 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.18.0",
+    "version": "0.18.1",
     "description": "Open-source Microsoft Word-style word processor in pure Rust",
     "homepage": "https://github.com/storytold/wordcraft",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/storytold/wordcraft/releases/download/v0.18.0/wordcraft-0.18.0-windows-x64-portable.zip",
-            "hash": "3604ff087970f8e2ea982cd599b8036b52832ae7faf5221e9a95a5e6b4cd69b8",
-            "extract_dir": "wordcraft-0.18.0-windows-x64-portable"
+            "url": "https://github.com/storytold/wordcraft/releases/download/v0.18.1/wordcraft-0.18.1-windows-x64-portable.zip",
+            "hash": "257f670514057cb14967b88c85ac82d165da43ee7671e185acead61420af0389",
+            "extract_dir": "wordcraft-0.18.1-windows-x64-portable"
         },
         "arm64": {
-            "url": "https://github.com/storytold/wordcraft/releases/download/v0.18.0/wordcraft-0.18.0-windows-arm64-portable.zip",
-            "hash": "493cb7196834589a762a16ed02a5e7f5e775d8275ca94bad706accf8bf0b4ea3",
-            "extract_dir": "wordcraft-0.18.0-windows-arm64-portable"
+            "url": "https://github.com/storytold/wordcraft/releases/download/v0.18.1/wordcraft-0.18.1-windows-arm64-portable.zip",
+            "hash": "168971a0e44227674fce4ca8c6543d0fd72740864f067a1301d5f962f1c0633a",
+            "extract_dir": "wordcraft-0.18.1-windows-arm64-portable"
         }
     },
     "bin": [
