@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.15.2",
+    "version": "0.15.4",
     "description": "Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported",
     "homepage": "https://github.com/moeru-ai/airi",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/moeru-ai/airi/releases/download/v0.15.2/AIRI-0.15.2-windows-x64-setup.exe#/dl.7z",
-            "hash": "9c59f3173dd8432976cd482c123332abdb894e05c916831111fcab834a1703f5"
+            "url": "https://github.com/moeru-ai/airi/releases/download/v0.15.4/AIRI-0.15.4-windows-x64-setup.exe#/dl.7z",
+            "hash": "b9a035db12d2469774cb0e8d4cad6f916cce47e0731981a260a84a0812750714"
         }
     },
     "installer": {
