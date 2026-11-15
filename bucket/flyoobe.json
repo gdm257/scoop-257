@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "3.03",
+    "version": "3.03.100",
     "description": "Flyoobe is the Control Panel for setting up Windows",
     "homepage": "https://github.com/builtbybel/flyoobe",
     "license": "MIT",
