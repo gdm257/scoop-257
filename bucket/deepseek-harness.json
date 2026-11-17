@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.2.2-rc.3",
+    "version": "0.2.2-rc.4",
     "description": "DeepSeek official desktop client for the Harness agent runtime, supporting background tasks, local file access and plugin management.",
     "homepage": "https://www.deepseek.com/download",
     "license": "MIT",
     "architecture": {
         "64bit": {
             "url": "https://download.deepseek.com/desktop/dsh-latest-windows-x64.exe#/dl.7z",
-            "hash": "7e25286518ce520b5c0943e178c52cdba1cc9ec3680bc7da181b79879e080c32",
+            "hash": "786c9b26050c35b62c7be6a01dee2541dc1c2c5d9bd5f2dbe77beeeb8d50704e",
             "installer": {
                 "script": [
                     "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\" -Removal",
