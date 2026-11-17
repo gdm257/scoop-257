@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "3.8.53",
+    "version": "3.8.54",
     "description": "Never stop coding. Free AI gateway: one endpoint, 231+ providers (50+ free), connect Claude Code, Codex, Cursor, Cline & Copilot to FREE Claude/GPT/Gemini. RTK+Caveman stacked compression saves 15-95% tokens, smart auto-fallback, MCP/A2A, multimodal APIs, Desktop/PWA",
     "homepage": "https://github.com/diegosouzapw/OmniRoute",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/diegosouzapw/OmniRoute/releases/download/v3.8.53/OmniRoute.exe#/dl.7z",
-            "hash": "613fa0255720dd1f4f84f7b19cc2f7d458b15e76826373b763d59e0f7fbd3f1f"
+            "url": "https://github.com/diegosouzapw/OmniRoute/releases/download/v3.8.54/OmniRoute.exe#/dl.7z",
+            "hash": "d6afa3724100ff39404fd4f2b952816a3049d90508c8504623e2d961e3729451"
         }
     },
     "pre_install": [
