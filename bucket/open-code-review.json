@@ -1,17 +1,17 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "1.14.2",
+    "version": "1.14.3",
     "description": "Open-source & free — Battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in fine-tuned ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible",
     "homepage": "https://github.com/alibaba/open-code-review",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/alibaba/open-code-review/releases/download/v1.14.2/opencodereview-windows-amd64.exe#/opencodereview.exe",
-            "hash": "614151f4c280910f6fc501a2793e1dd1b59483eea0144f10550092ccd533f652"
+            "url": "https://github.com/alibaba/open-code-review/releases/download/v1.14.3/opencodereview-windows-amd64.exe#/opencodereview.exe",
+            "hash": "5531c50080feec9bc2b966c83e1498a3b910ac23bd907651c0cfe4e7f7463631"
         },
         "arm64": {
-            "url": "https://github.com/alibaba/open-code-review/releases/download/v1.14.2/opencodereview-windows-arm64.exe#/opencodereview.exe",
-            "hash": "15f99eb9084624eabbf7fbcac112140aef003d577321c79100773adce9f1c910"
+            "url": "https://github.com/alibaba/open-code-review/releases/download/v1.14.3/opencodereview-windows-arm64.exe#/opencodereview.exe",
+            "hash": "5d0e0dd77086df1828a5a1e563722d6d61d337e3d39ed45e484aa87c67d1b578"
         }
     },
     "bin": [
