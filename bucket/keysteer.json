@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-    "version": "0.15.6",
+    "version": "0.15.7",
     "description": "Keyboard-driven mouse and window management for Windows and macOS — Vim-style navigation, accessibility UI hints, tiling, tabs, and workspaces",
     "homepage": "https://github.com/dccif/KeySteer",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/dccif/KeySteer/releases/download/v0.15.6/KeySteer-v0.15.6-x86_64-pc-windows-msvc.zip",
-            "hash": "6cea2a023d8138669cf1c8866c663c96b802510c2eae172d880df3818bd7588d"
+            "url": "https://github.com/dccif/KeySteer/releases/download/v0.15.7/KeySteer-v0.15.7-x86_64-pc-windows-msvc.zip",
+            "hash": "a242c508d1df6881c2525ac2c419a456e647e54eed95b1683a97d9153591e014"
         }
     },
     "extract_dir": "KeySteer",
